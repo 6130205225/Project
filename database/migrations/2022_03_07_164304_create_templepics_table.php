@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('user_id');
-            $table->string('user_firstname', 45);
-            $table->string('user_lastname', 45);
-            $table->string('username', 45)->unique();
-            $table->string('password');
-            $table->integer('user_role_id');
+        Schema::create('templepics', function (Blueprint $table) {
+            $table->bigIncrements('temple_pic_id');
+            $table->bigInteger('temple_id')->unsigned();
+            $table->foreign('temple_id')->references('temple_id')->on('temples');
+            $table->string('temple_pic_url');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('templepics');
     }
 };

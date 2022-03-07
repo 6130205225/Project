@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TempleController;
+use App\Http\Controllers\ActivityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,10 @@ Route::get('/1513', function () {
     return view('welcome');
 });
 
-Route::get('/homepage', function () {
-    return view('Homepage');
-})->name("home");
+Route::get(
+    '/homepage',
+    [TempleController::class, 'getTemple']
+)->name("home.show");
 
 Route::get('/login', function () {
     return view('Login');
@@ -33,9 +35,10 @@ Route::get('/templeuser', function () {
     return view('Templeuser');
 });
 
-Route::get('/activityall', function () {
-    return view('Activityall');
-})->name("activities");
+Route::get(
+    '/activityall',
+    [ActivityController::class, 'getActivityAll']
+)->name("activities.show");
 
 Route::get('/activity', function () {
     return view('Activity');

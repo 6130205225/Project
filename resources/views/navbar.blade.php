@@ -25,11 +25,10 @@
                 <li><a>Item 3</a></li>
             </ul>
         </div>
-        <a href="{{ route('home') }}" class=" btn btn-ghost normal-case text-xl">HOME</a>
+        <a href="{{ route('home.show') }}" class=" btn btn-ghost normal-case text-xl">หน้าหลัก</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-            <!-- <li><a href="{{ route('home') }}">หน้าหลัก</a></li> -->
             <li><a href="{{ route('activities') }}">กิจกรรมทั้งหมด</a></li>
             <li><a href="{{ route('reviews') }}">รีวิวทั้งหมด</a></li>
         </ul>

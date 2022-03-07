@@ -32,73 +32,22 @@
                 </div>
             </div>
 
-            <div class="grid gap-5 md:grid-cols-3 grid-cols-1 py-5 px-5">
+            <div class="grid gap-5 md:grid-cols-3 grid-cols-1 py-5 px-5 ">
+                @foreach ($templeHome as $templeHome)
+                    {{-- <h3 class="text-3xl font-bold">{{ $templeHome->temple_name }}</h3> --}}
+                    <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
+                        <figure><img class="w-full h-72 " src="{{ $templeHome->temple_pic_url }}" alt="">
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ $templeHome->temple_id }}</h2>
 
-                <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-compact  m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
