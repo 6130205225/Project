@@ -19,7 +19,7 @@ Route::get('/1513', function () {
 
 Route::get('/homepage', function () {
     return view('Homepage');
-});
+})->name("home");
 
 Route::get('/login', function () {
     return view('Login');
@@ -35,15 +35,15 @@ Route::get('/templeuser', function () {
 
 Route::get('/activityall', function () {
     return view('Activityall');
-});
+})->name("activities");
 
 Route::get('/activity', function () {
     return view('Activity');
-});
+})->name("activities");
 
 Route::get('/reviewall', function () {
     return view('Reviewall');
-});
+})->name("reviews");
 
 Route::get('/review', function () {
     return view('Review');
