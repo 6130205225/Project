@@ -15,12 +15,17 @@ return new class extends Migration
     {
         Schema::create('temples', function (Blueprint $table) {
             $table->bigIncrements('temple_id');
-            $table->integer('temple_type_id');
-            $table->string('temple_name', 45);
+            $table->string('temple_name', 45)->unique();
             $table->string('temple_description', 45);
             $table->string('temple_address', 45);
             $table->string('temple_latitude');
             $table->string('temple_longitude');
+
+            $table->bigInteger('fk_user_id')->unsigned(); //_create_by สร้างโดย
+            $table->foreign('fk_user_id')->references('user_id')->on('users');
+
+
+
             $table->timestamps();
         });
     }

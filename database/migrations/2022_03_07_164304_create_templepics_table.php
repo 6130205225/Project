@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('templepics', function (Blueprint $table) {
             $table->bigIncrements('temple_pic_id');
-            $table->bigInteger('temple_id')->unsigned();
-            $table->foreign('temple_id')->references('temple_id')->on('temples');
+
+            // $table->bigInteger('fk_temple_id')->unsigned();
+            // $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
+
             $table->string('temple_pic_url');
             $table->timestamps();
         });

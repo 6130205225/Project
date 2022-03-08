@@ -22,33 +22,13 @@
             <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl">
             <div>
                 <h3 class="text-3xl font-bold">รีวิว</h3>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+                    exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
             </div>
         </div>
     </div>
 
-    <div class="hero min-h-min bg-base-200 shadow-2xl py-5">
-        <div class="hero-content flex-col lg:flex-row">
-            <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl">
-            <div>
-                <h3 class="text-3xl font-bold">กิจกรรม</h3>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="hero min-h-min bg-base-200 shadow-2xl py-5">
-        <div class="hero-content flex-col lg:flex-row">
-            <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl">
-            <div>
-                <h3 class="text-3xl font-bold">กิจกรรม</h3>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>

@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
-            $table->bigIncrements('activity_id');
+        Schema::create('reviewpics', function (Blueprint $table) {
+            $table->bigIncrements('review_pic_id');
+
+            $table->bigInteger('fk_review_id')->unsigned();
+            $table->foreign('fk_review_id')->references('review_id')->on('reviews');
 
             $table->bigInteger('fk_temple_id')->unsigned();
             $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
 
-            $table->string('activity_name', 40);
-            $table->string('activity_description', 200);
-
-            $table->bigInteger('fk_user_id')->unsigned(); //temple_create_by สร้างโดย
-            $table->foreign('fk_user_id')->references('user_id')->on('users');
+            $table->string('review_pic_url');
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('reviewpics');
     }
 };

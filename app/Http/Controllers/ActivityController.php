@@ -10,14 +10,15 @@ class ActivityController extends Controller
     public function getActivityAll()
     {
         $activityTemple = Activity::select(
-            'activities.temple_event_id',
-            'activities.temple_event_name',
-            'activities.temple_event_description',
-
+            'activities.activity_id',
+            'activities.activity_name',
+            'activities.activity_description',
+            'activities.activity_pic_url'
         )
-            ->orderBy('activities.temple_event_id', 'asc')
+            ->join('Activitypic', 'activities.activity_id', '=', 'activitiespics.activity_id')
+            ->orderBy('activities.activity_id', 'asc')
             ->get();
-        // dd($activityTemple);
+        // dd($ชื่อ);
         return view('Activityall', compact('activityTemple'));
     }
 }

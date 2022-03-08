@@ -29,7 +29,7 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-            <li><a href="{{ route('activities') }}">กิจกรรมทั้งหมด</a></li>
+            <li><a href="{{ route('activities.show') }}">กิจกรรมทั้งหมด</a></li>
             <li><a href="{{ route('reviews') }}">รีวิวทั้งหมด</a></li>
         </ul>
     </div>

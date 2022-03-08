@@ -17,10 +17,10 @@
         style="background-image: url(https://cms.dmpcdn.com/travel/2020/08/16/e8cb01a0-df1f-11ea-a0b4-232d08119930_original.jpg);">
         <div class="hero-overlay bg-opacity-60">
             <div class="max-w-full text-center">
-                <h1 class="mb-5 text-5xl font-bold text-base-100 py-5">Temple Tourism System In Esan</h1>
+                <h1 class="mb-5 text-5xl font-bold text-base-100 py-5">ระบบท่องเที่ยววัดในภาคอีสาน</h1>
                 <div class="form-control">
                     <div class="input-group flex flex-wrap items-center justify-center ">
-                        <input type="text" placeholder="ค้นหา" class="input input-bordered">
+                        <input type="text" placeholder="ค้นหา" class="input input-bordered ">
                         <button class="btn btn-square">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -40,7 +40,6 @@
                         </figure>
                         <div class="card-body">
                             <h2 class="card-title">{{ $templeHome->temple_id }}</h2>
-
                             <div class="card-actions justify-end">
                                 <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
                             </div>

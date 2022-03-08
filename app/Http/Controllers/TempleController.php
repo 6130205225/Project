@@ -11,10 +11,16 @@ class TempleController extends Controller
 {
     public function getTemple()
     {
-        $templeHome = Temple::select('temples.temple_id', 'temples.temple_name', 'templepics.temple_pic_url') //คือการดึงข้อมูล
+        $templeHome = Temple::select(
+            'temples.temple_id',
+            'temples.temple_name',
+            'templepics.temple_pic_url'
+        ) //คือการดึงข้อมูล
             ->join('templepics', 'temples.temple_id', '=', 'templepics.temple_id')
-            ->orderBy('temples.temple_id', 'asc')->limit(6) // asc= เรียงจากหน้าไปหลัง desc=เรียงจากหลังไปหน้า
+            ->orderBy('temples.temple_id', 'asc') // asc= เรียงจากหน้าไปหลัง desc=เรียงจากหลังไปหน้า
+            ->limit(6)
             ->get();
+        // dd($templeHome); คือการเช็คว่าข้อมูลตัวแปลที่ชื่อว่า$templeHome
         return view('Homepage', compact('templeHome'));
     }
 }

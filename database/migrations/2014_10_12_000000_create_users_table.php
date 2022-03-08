@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('user_lastname', 45);
             $table->string('username', 45)->unique();
             $table->string('password');
-            $table->integer('user_role_id');
+
+            // $table->bigInteger('fk_user_role_id')->unsigned();
+            // $table->foreign('fk_user_role_id')->references('user_role_id')->on('userroles');
             $table->timestamps();
         });
     }
