@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
+use App\Models\Activitypic;
 
 class ActivityController extends Controller
 {
@@ -13,9 +14,9 @@ class ActivityController extends Controller
             'activities.activity_id',
             'activities.activity_name',
             'activities.activity_description',
-            'activities.activity_pic_url'
+            'activitiespics.activity_pic_url'
         )
-            ->join('Activitypic', 'activities.activity_id', '=', 'activitiespics.activity_id')
+            ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
             ->orderBy('activities.activity_id', 'asc')
             ->get();
         // dd($ชื่อ);

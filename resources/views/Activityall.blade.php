@@ -12,26 +12,30 @@
 </head>
 
 <body>
+
     @include('navbar')
-    <h1 class="text-5xl font-bold text-center py-5">กิจกรรมทั้งหมด</h1>
+    <h1 class="text-5xl font-bold text-center py-5 ">กิจกรรมทั้งหมด</h1>
 
     @foreach ($activityTemple as $activityTemple)
-        <h3 class="text-3xl font-bold">{{ $activityTemple->temple_event_name }}</h3>
-        <div class="card card-compact m-auto p-auto bg-base-200 shadow-xl w-full h-full ">
-            <div class="grid gap-5 md:grid-cols-2 grid-cols-1 ">
-                <figure><img class="w-25 h-25 " src="https://api.lorem.space/image/movie?w=260&h=400" alt="">
+        <div class="card card-compact bg-base-100 shadow-sm mx-10 my-10">
+            <div class="grid gap-5 md:grid-cols-3 grid-cols-1 mx-10">
+                <figure>
+                    <img class="w-4/5 h-48" src=" {{ $activityTemple->activity_pic_url }}" alt="">
                 </figure>
-                <div class="card-body">
-                    <h2 class="card-title">{{ $activityTemple->temple_event_description }}</h2>
 
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
-                    </div>
+                <div class="card-body ">
+                    <h3 class="text-3xl font-bold">{{ $activityTemple->activity_name }}</h3>
+                    <h2 class="card-title">{{ $activityTemple->activity_description }}</h2>
                 </div>
-
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                </div>
             </div>
+            <div class="divider"></div>
+        </div>
     @endforeach
-    </div>
+
+
 
 </body>
 
