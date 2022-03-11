@@ -29,11 +29,11 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-            <li><a href="{{ route('activities.show') }}">กิจกรรมทั้งหมด</a></li>
-            <li><a href="{{ route('reviews') }}">รีวิวทั้งหมด</a></li>
+            <li><a href="{{ route('activityall.show') }}">กิจกรรมทั้งหมด</a></li>
+            <li><a href="{{ route('reviewall.show') }}">รีวิวทั้งหมด</a></li>
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn">เข้าสู่ระบบ</a>
+        <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
     </div>
 </div>

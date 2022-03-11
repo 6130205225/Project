@@ -22,17 +22,17 @@
                     <div class="card-body px-16">
                         <div class="form-control ">
                             <label class="label">
-                                <span class="label-text ">เข้าสู่ระบบ</span>
+                                {{-- <span class="label-text ">ชื่อผู้ใช้</span> --}}
                             </label>
-                            <input type="text" placeholder="เข้าสู่ระบบ*" class="input input-bordered w-full px-6">
+                            <input type="text" placeholder="ชื่อผู้ใช้*" class="input input-bordered w-full px-6">
                         </div>
                         <div class="form-control ">
                             <label class="label">
-                                <span class="label-text">รหัสผ่าน</span>
+                                {{-- <span class="label-text">รหัสผ่าน</span> --}}
                             </label>
                             <input type="text" placeholder="รหัสผ่าน*" class="input input-bordered w-full px-6">
                             <label class="label ">
-                                <a href="#"
+                                <a href="{{ route('register.create') }}"
                                     class="label-text-alt link link-hover text-primary font-bold">สมัครสมาชิก</a>
                             </label>
                         </div>

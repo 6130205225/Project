@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TempleController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ReviewController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,44 +16,55 @@ use App\Http\Controllers\ActivityController;
 |
 */
 
-Route::get('/1513', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('Homepage');
 });
 
 Route::get(
     '/homepage',
     [TempleController::class, 'getTemple']
-)->name("home.show");
+)
+    ->name("home.show");
 
 Route::get('/login', function () {
     return view('Login');
-});
+})
+    ->name("login.check");
 
 Route::get('/register', function () {
     return view('Register');
-});
+})
+    ->name("register.create");
 
 Route::get('/templeuser', function () {
     return view('Templeuser');
-});
+})
+    ->name("templeuser.show");
 
 Route::get(
     '/activityall',
     [ActivityController::class, 'getActivityAll']
-)->name("activities.show");
+)
+    ->name("activityall.show");
 
-Route::get('/activity', function () {
-    return view('Activity');
-})->name("activities");
+Route::get(
+    '/activity/{inputreview}',
+    [ActivityController::class, 'getActivities']
+)
+    ->name("activities.show");
 
-Route::get('/reviewall', function () {
-    return view('Reviewall');
-})->name("reviews");
+Route::get(
+    '/reviewall',
+    [ReviewController::class, 'getReview']
+)
+    ->name("reviewall.show");
 
 Route::get('/review', function () {
     return view('Review');
-});
+})
+    ->name("reviews.create");
 
-Route::get('/admintemple', function () {
-    return view('Admintemple');
-});
+// Route::get('/admintemple', function () {
+//     return view('Admintemple');
+// })
+//     ->name("admintemple");

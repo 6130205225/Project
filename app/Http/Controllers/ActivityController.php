@@ -22,4 +22,8 @@ class ActivityController extends Controller
         // dd($ชื่อ);
         return view('Activityall', compact('activityTemple'));
     }
+    // public function getActivities($id)
+    // {
+    //     dd($id);
+    // }
 }

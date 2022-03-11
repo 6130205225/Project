@@ -19,16 +19,18 @@
     @foreach ($activityTemple as $activityTemple)
         <div class="card card-compact bg-base-100 shadow-sm mx-10 my-10">
             <div class="grid gap-5 md:grid-cols-3 grid-cols-1 mx-10">
-                <figure>
+                <figure class="">
                     <img class="w-4/5 h-48" src=" {{ $activityTemple->activity_pic_url }}" alt="">
                 </figure>
 
                 <div class="card-body ">
-                    <h3 class="text-3xl font-bold">{{ $activityTemple->activity_name }}</h3>
-                    <h2 class="card-title">{{ $activityTemple->activity_description }}</h2>
+                    <p class="text-3xl font-bold break-all">{{ $activityTemple->activity_name }}</p>
+                    <p class="card-title break-all">{{ $activityTemple->activity_description }}</p>
+                    {{-- <p class="card-title break-all">{{ $activityTemple->activity_id }}</p> --}}
                 </div>
                 <div class="card-actions justify-end">
-                    <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                    <a href="{{ route('activities.show', [$activityTemple->activity_id]) }}"
+                        class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
                 </div>
             </div>
             <div class="divider"></div>

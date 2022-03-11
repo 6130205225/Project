@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <h2 class="card-title">{{ $templeHome->temple_id }}</h2>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                                <a href="" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
                             </div>
                         </div>
                     </div>

@@ -15,38 +15,40 @@
 
     <div class="hero min-h-screen bg-base-200 ">
         <div class="flex-col hero-content lg:flex-row-reverse">
-            <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100 px-32 text-center">
+            <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100  text-center">
                 <div class="card-body">
-
                     <h3 class="font-bold">สมัครสมาชิก</h3>
-                    <input type="text" placeholder="ชื่อ" class="input input-bordered input-md w-full max-w-xs">
-                    <input type="text" placeholder="นามสุกล" class="input input-bordered input-md w-full max-w-xs">
-                    <input type="text" placeholder="ชื่อผู้ใช้" class="input input-bordered input-md w-full max-w-xs">
-                    <input type="text" placeholder="รหัสผ่าน" class="input input-bordered input-md w-full max-w-xs">
-                    <input type="text" placeholder="ยืนยันรหัสผ่าน" class="input input-bordered input-md w-full max-w-xs">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="ชื่อ" class="input input-bordered input-md w-full max-w-xs">
+                            <input type="text" placeholder="นามสุกล"
+                                class="input input-bordered input-md w-full max-w-xs">
+                        </div>
+                        <input type="text" placeholder="ชื่อผู้ใช้" class="input input-bordered input-md w-full ">
+                        <input type="text" placeholder="รหัสผ่าน" class="input input-bordered input-md w-full ">
+                        <input type="text" placeholder="ยืนยันรหัสผ่าน" class="input input-bordered input-md w-full ">
 
-                    <div class="form-control">
-                        <label class="cursor-pointer label">
+                        <div class="form-control">
+                            <label class="cursor-pointer label">
 
-                            <input type="radio" name="radio-6" class="radio checked:bg-blue-500">
-                            <span class="label-text">ผู้ดูแลวัด</span>
+                                <input type="radio" name="radio-6" class="radio checked:bg-blue-500">
+                                <span class="label-text">ผู้ใช้งานทั่วไป</span>
 
-                            <input type="radio" name="radio-6" class="radio checked:bg-blue-500">
-                            <span class="label-text">ผู้ใช้งานทั่วไป</span>
+                                <input type="radio" name="radio-6" class="radio checked:bg-blue-500">
+                                <span class="label-text">ผู้ดูแลวัด</span>
 
-                        </label>
-                    </div>
+                            </label>
+                        </div>
 
-
-                    <div class="form-control mt-6">
-                        <button class="btn btn-primary">สมัครสมาชิก</button>
+                        <div class="form-control mt-6">
+                            <button class="btn btn-primary">สมัครสมาชิก</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-
 
 
 </body>
