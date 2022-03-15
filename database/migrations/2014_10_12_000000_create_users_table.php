@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('username', 45)->unique();
             $table->string('password');
 
-            // $table->bigInteger('fk_user_role_id')->unsigned();
+            // $table->bigInteger('fk_user_role_id')->unsigned(); //_create_by สร้างโดย
             // $table->foreign('fk_user_role_id')->references('user_role_id')->on('userroles');
+
             $table->timestamps();
         });
     }
