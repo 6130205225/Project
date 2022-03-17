@@ -64,7 +64,8 @@ Route::get('/review', function () {
 })
     ->name("reviews.create");
 
-// Route::get('/admintemple', function () {
-//     return view('Admintemple');
-// })
-//     ->name("admintemple");
+Route::get('/admintemple', function () {
+    return view('Admintemple');
+})
+    ;
+// ->name("admintemple")

@@ -12,31 +12,29 @@
 </head>
 
 <body>
-    @include('navbar')
+    {{-- @include('navbar') --}}
+    <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-12">
 
-    <div class="hero min-h-screen bg-base-100">
-        <div class="hero-overlay bg-opacity-60">
-            <div class="max-w-full text-center">
-                <h1 class="mb-5 text-2xl font-bold text-base-100 py-5">รายละเอียดวัดของคุณ</h1>
-                <div class="form-control">
-                </div>
-                ชื่อวัด <input type="text" placeholder="กรุณากรอกชื่อวัด" class="input input-bordered w-full max-w-md text-center">
-                <div class="dropdown dropdown-right">
-                    <!-- <h3>ประเภทวัด</h3> -->
-                    <label tabindex="0" class="btn m-1 bg-base-200">
-                        <h3 class="">โปรดเลือกประเภทวัด</h3>
-                    </label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>วัดทั่วไป</a></li>
-                        <li><a>วัดป่า</a></li>
-                    </ul>
+            <div class="hero-overlay bg-opacity-60">
+                <div class="max-w-full text-center">
+                    <div>
+                        <h1 class="mb-5 text-2xl font-bold text-bg-accent py-5">รายละเอียดวัดของคุณ</h1>
+                        ชื่อวัด <input type="text" placeholder="กรุณากรอกชื่อวัด"
+                            class="input input-bordered w-full max-w-md text-center">
+                    </div>
+
+                    <div class="py-5">
+                       ประเภทวัด
+                        <div class="btn-group text-center justify-center ">
+                            <button class="btn">วัดทั่วไป</button>
+                            <button class="btn">วัดป่า  </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            ที่อยู่ <br>
-            <input type="text" placeholder="......" class="input input-bordered w-full max-w-md text-center">
 
-
-        </div>
+    </div>
 </body>
 
 </html>
