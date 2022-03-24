@@ -13,6 +13,7 @@
 
 <body>
     @include('navbar')
+     @foreach ($activityUser as $activityUser)
     <h1 class="text-5xl font-bold text-center py-5">กิจกรรม</h1>
     <div class="hero min-h-min bg-base-200 shadow-2xl py-5">
         <div class="hero-content flex-col lg:flex-row">
@@ -28,7 +29,7 @@
             </div>
         </div>
     </div>
-
+    @endforeach
 </body>
 
 </html>

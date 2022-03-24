@@ -12,52 +12,38 @@
 
 <body>
     @include('navbar')
-    <div class="hero min-h-screen bg-base-200">
-        <div class="flex-col hero-content lg:flex-row-reverse">
-            <div class="text-center lg:text-left">
-                <!-- <h1 class="text-5xl font-bold">Login now!</h1>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            </div> -->
-                <div class="card flex-shrink-0 max-w-xl shadow-2xl bg-base-100">
-                    <div class="card-body px-16">
-                        <div class="form-control ">
-                            <label class="label">
-                                {{-- <span class="label-text ">ชื่อผู้ใช้</span> --}}
-                            </label>
-                            <input type="text" placeholder="ชื่อผู้ใช้*" class="input input-bordered w-full px-6">
-                        </div>
-                        <div class="form-control ">
-                            <label class="label">
-                                {{-- <span class="label-text">รหัสผ่าน</span> --}}
-                            </label>
-                            <input type="text" placeholder="รหัสผ่าน*" class="input input-bordered w-full px-6">
-                            <label class="label ">
-                                <a href="{{ route('register.create') }}"
-                                    class="label-text-alt link link-hover text-primary font-bold">สมัครสมาชิก</a>
-                            </label>
-                        </div>
-                        <!-- <div class="form-control mt-6">
-                            <button class="btn btn-primary">เข้าสู่ระบบ</button>
-                        </div> -->
+    <form action="/loginhome" method="POST">
+        @csrf
+        <div class="hero min-h-screen bg-base-200">
+            <div class="flex-col hero-content lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <div class="card flex-shrink-0 max-w-xl shadow-2xl bg-base-100">
+                        <div class="card-body px-16">
+                            <div class="form-control ">
+                                <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้*"
+                                    class="input input-bordered w-full px-6">
+                            </div>
+                            <div class="form-control ">
+                                <label class="label">
+                                    {{-- <span class="label-text">รหัสผ่าน</span> --}}
+                                </label>
+                                <input type="password" id="password" name="password" placeholder="รหัสผ่าน*"
+                                    class="input input-bordered w-full px-6">
+                                <label class="label ">
+                                    <a href="{{ route('register.create') }}"
+                                        class="label-text-alt link link-hover text-primary font-bold">สร้างสมาชิกใหม่</a>
+                                </label>
+                            </div>
 
-                        <label for="my-modal"
-                            class="btn modal-button bg-primary-focus btn btn-primary">เข้าสู่ระบบ</label>
-
-                        <!-- Put this part before </body> tag -->
-                        <input type="checkbox" id="my-modal" class="modal-toggle">
-                        <div class="modal">
-                            <div class="modal-box">
-                                <p class="py-4 text-center">กรุณากรอกข้อมูล!</p>
-                                <div class="modal-action">
-                                    <label for="my-modal" class="btn">ตกลง</label>
-                                </div>
+                            <div class="form-control mt-6 btn btn-primary">
+                                <button type="submit" value="submit">เข้าสู่ระบบ</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </form>
 </body>
 
 </html>

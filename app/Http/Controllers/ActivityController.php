@@ -19,11 +19,22 @@ class ActivityController extends Controller
             ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
             ->orderBy('activities.activity_id', 'asc')
             ->get();
-        // dd($ชื่อ);
+
         return view('Activityall', compact('activityTemple'));
     }
-    // public function getActivities($id)
-    // {
-    //     dd($id);
-    // }
+
+    public function getActivities()
+    {
+        $activityUser = Activity::select(
+            'activities.activity_id',
+            'activities.activity_name',
+            'activities.activity_description',
+            'activitiespics.activity_pic_url'
+        )
+        ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+            ->orderBy('activities.activity_id', 'asc')
+            ->get();
+            return view('Activity', compact('activityUser'));
+    }
+
 }

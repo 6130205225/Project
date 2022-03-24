@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TempleController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +51,7 @@ Route::get(
     ->name("activityall.show");
 
 Route::get(
-    '/activity/{inputreview}',
+    '/activity',
     [ActivityController::class, 'getActivities']
 )
     ->name("activities.show");
@@ -64,8 +67,27 @@ Route::get('/review', function () {
 })
     ->name("reviews.create");
 
-Route::get('/admintemple', function () {
-    return view('Admintemple');
-})
-    ;
-// ->name("admintemple")
+Route::post('/loginhome',
+    [UserController::class, 'loginhome']
+ )
+    ->name("login.show");
+
+Route::post('/registerhome',
+    [UserController::class, 'registerhome']
+ )
+    ->name("register.show");
+
+Route::get('/logouthome',
+    [UserController::class, 'logouthome']
+)
+    ->name("logouthome.show");
+
+
+// Route::get('/admintemple', function () {
+//     return view('Admintemple');
+// }) ;
+
+// Route::post('/register', 'UserController@register');
+
+
+

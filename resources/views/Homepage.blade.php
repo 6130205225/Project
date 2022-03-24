@@ -39,17 +39,15 @@
                         <figure><img class="w-full h-72 " src="{{ $templeHome->temple_pic_url }}" alt="">
                         </figure>
                         <div class="card-body">
-                            <h2 class="card-title">{{ $templeHome->temple_id }}</h2>
+                            <h2 class="card-title">{{ $templeHome->temple_name }}</h2>
                             <div class="card-actions justify-end">
-                                <a href="" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
+                                <a href="{{ route('register.create') }}"
+                                    class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
-
         </div>
     </div>
 </body>

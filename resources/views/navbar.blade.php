@@ -33,7 +33,14 @@
             <li><a href="{{ route('reviewall.show') }}">รีวิวทั้งหมด</a></li>
         </ul>
     </div>
-    <div class="navbar-end">
-        <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
-    </div>
+    @if (Session::has('user'))
+        <div class="navbar-end">
+            <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
+        </div>
+    @else
+        <div class="navbar-end">
+            <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
+        </div>
+    @endif
+
 </div>
