@@ -39,10 +39,10 @@ Route::get('/register', function () {
 })
     ->name("register.create");
 
-Route::get('/templeuser', function () {
-    return view('Templeuser');
-})
-    ->name("templeuser.show");
+// Route::get('/templeuser', function () {
+//     return view('Templeuser');
+// })
+//     ->name("templeuser.show");
 
 Route::get(
     '/activityall',
@@ -81,6 +81,28 @@ Route::get('/logouthome',
     [UserController::class, 'logouthome']
 )
     ->name("logouthome.show");
+
+Route::get('/wrong', function () {
+        // echo "safasfsafsa";
+        return view('Wrong');
+    });
+
+    Route::get('/aaaa', function () {
+        echo "safasfsafsa";
+        // return view('Wrong');
+    });
+
+    Route::get(
+        '/templeuser',
+        [TempleController::class, 'templeOne']
+    )
+        ->name("templeuser.show");
+
+// Route::get('/templeuser', function () {
+//         return view('Templeuser');
+//     })
+//         ->name("Templeuser.show");
+
 
 
 // Route::get('/admintemple', function () {

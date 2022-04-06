@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function wronghome(Request $request)
+    {
+        return redirect('/wrong');
+    }
+
     public function loginhome(Request $request)
     {
         $username = $request->username;
@@ -31,7 +36,9 @@ class UserController extends Controller
                 // dd('จริง');
             }
             else {
-                return redirect('/login');
+                return redirect('/wrong');
+
+                // ->with('error','Email-Address And Password Are Wrong');
                 // dd('ไม่จริง');
             }
 
@@ -64,16 +71,15 @@ class UserController extends Controller
                 'password' => $password,
                 'fk_user_role_id' => $fk_user_role_id
             ]);
+
             return redirect('/login');
             // dd('ไม่จริง');
-
         }
         else {
+
             return back()->withInput();
+            // dd('ไม่จริง');
         }
-
-
-
     }
 
 }

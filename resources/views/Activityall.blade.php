@@ -24,9 +24,11 @@
                 </figure>
 
                 <div class="card-body ">
+                    {{-- <p class="text-3xl font-bold break-all">{{ $activityTemple->activity_name }}></p> --}}
                     <p class="text-3xl font-bold break-all">{{ $activityTemple->activity_name }}</p>
-                    <p class="card-title break-all">{{ $activityTemple->activity_description }}</p>
+                    <p class="">{{ $activityTemple->activity_description }}</p>
                     {{-- <p class="card-title break-all">{{ $activityTemple->activity_id }}</p> --}}
+
                 </div>
                 <div class="card-actions justify-end">
                     <a href="{{ route('activities.show', [$activityTemple->activity_id]) }}"

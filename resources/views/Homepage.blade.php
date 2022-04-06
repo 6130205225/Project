@@ -34,14 +34,16 @@
 
             <div class="grid gap-5 md:grid-cols-3 grid-cols-1 py-5 px-5 ">
                 @foreach ($templeHome as $templeHome)
-                    {{-- <h3 class="text-3xl font-bold">{{ $templeHome->temple_name }}</h3> --}}
                     <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
                         <figure><img class="w-full h-72 " src="{{ $templeHome->temple_pic_url }}" alt="">
                         </figure>
                         <div class="card-body">
                             <h2 class="card-title">{{ $templeHome->temple_name }}</h2>
                             <div class="card-actions justify-end">
-                                <a href="{{ route('register.create') }}"
+                                <div class="divider"></div>
+                            {{-- <div class="">{{ $templeHome->temple_description }}</div> --}}
+
+                                <a href="{{ route('templeuser.show') }}"
                                     class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
                             </div>
                         </div>

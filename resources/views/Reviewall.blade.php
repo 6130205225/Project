@@ -25,7 +25,7 @@
 
                 <div class="card-body ">
                     <h3 class="text-3xl font-bold">{{ $reviewtemple->review_topic }}</h3>
-                    <h2 class="card-title">{{ $reviewtemple->review_description }}</h2>
+                    {{-- <h2 class="text-xl">{{ $reviewtemple->review_description }}</h2> --}}
                 </div>
                 <div class="card-actions justify-end">
                     <a href="{{ route('reviews.create') }}" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
