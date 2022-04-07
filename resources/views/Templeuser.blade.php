@@ -19,7 +19,7 @@
 
             <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
                 <figure>
-                    <img class="w-full h-72 " src="{{ $searchOne->temple_pic_url }}" alt="">
+                    <img class="w-w-4/12 h-72 " src="{{ $searchOne->temple_pic_url }}" alt="">
                 </figure>
 
                 <div class="divider"></div>

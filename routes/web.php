@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('Homepage');
+    return redirect('/homepage');
 });
 
 Route::get(
@@ -38,11 +38,6 @@ Route::get('/register', function () {
     return view('Register');
 })
     ->name("register.create");
-
-// Route::get('/templeuser', function () {
-//     return view('Templeuser');
-// })
-//     ->name("templeuser.show");
 
 Route::get(
     '/activityall',
@@ -83,7 +78,6 @@ Route::get('/logouthome',
     ->name("logouthome.show");
 
 Route::get('/wrong', function () {
-        // echo "safasfsafsa";
         return view('Wrong');
     });
 
