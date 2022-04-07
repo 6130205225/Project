@@ -15,6 +15,7 @@ class TempleController extends Controller
             'temples.temple_id',
             'temples.temple_name',
             'temple_description',
+            'temple_address',
             'templepics.temple_pic_url'
         ) //คือการดึงข้อมูล
             ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
@@ -43,7 +44,7 @@ class TempleController extends Controller
     public function searchtempleOne(Request $request)
     {
         $searchTwo = $request->searchTwo;
-        $searchOne = Temple::select('temple_name','temple_description','templepics.temple_pic_url')
+        $searchOne = Temple::select('temple_name','temple_description','temple_address','templepics.temple_pic_url')
         ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
         ->where('temple_id', '=', $searchTwo)
         ->get();

@@ -14,26 +14,28 @@
 <body>
     @include('navbar')
     @foreach ($Tworeview as $Tworeview)
-        <h1 class="text-5xl font-bold text-center py-5">{{ $Tworeview->review_topic }}</h1>
+        <h1 class="text-5xl font-bold text-center py-5">{{ $Tworeview->temple_name }}</h1>
+
         <div class="divider"></div>
 
-            <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
-                <figure>
-                    <img class="w-w-4/12 h-72 " src="{{ $Tworeview->review_pic_url }}" alt="">
-                </figure>
+        <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
+            <figure>
+                <img class="w-w-4/12 h-72 " src="{{ $Tworeview->review_pic_url }}" alt="">
+            </figure>
 
-                <div class="divider"></div>
-                <div>
-                    <div class="text-center">
-                        <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดการรีวิว</h1>
-                        <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
-                            <p class="py-5">{{ $Tworeview->review_description }}</p>
-                        </div>
+            <div class="divider"></div>
+            <div>
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดการรีวิว</h1>
+
+                    <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
+                        <p class="text-left py-5">{{ $Tworeview->review_description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="divider"></div>
-        @endforeach
+        </div>
+        <div class="divider"></div>
+    @endforeach
 </body>
 
 </html>

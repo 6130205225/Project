@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Activitypic;
+use App\Models\Temple;
 
 class ActivityController extends Controller
 {
@@ -28,8 +29,9 @@ class ActivityController extends Controller
     public function Onactivitytemple(Request $request)
     {
         $Oneactivity = $request->activityid;
-        $activityTwo = Activity::select('activity_name', 'activity_description', 'activity_pic_url')
+        $activityTwo = Activity::select('temple_name','activity_name', 'activity_description', 'activity_pic_url')
         ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+        ->join('temples', 'activities.fk_temple_id', '=', 'temples.temple_id')
         ->where('activities.activity_id', '=', $Oneactivity)
         ->get();
         return view('Activity', compact('activityTwo'));

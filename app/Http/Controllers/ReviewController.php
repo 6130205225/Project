@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Models\Reviewpic;
 use App\Models\Reviewcomment;
+use App\Models\Temple;
 
 use Illuminate\Http\Request;
 
@@ -28,8 +29,9 @@ class ReviewController extends Controller
     public function Onreviewtemple(Request $request)
     {
         $Onereview = $request->reviewid;
-        $Tworeview = Review::select('review_topic', 'review_description', 'review_pic_url')
+        $Tworeview = Review::select('temple_name','review_topic', 'review_description', 'review_pic_url')
         ->join('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
+        ->join('temples', 'reviews.fk_temple_id', '=', 'temples.temple_id')
         ->where('reviews.review_id', '=', $Onereview)
         ->get();
         return view('Review', compact('Tworeview'));

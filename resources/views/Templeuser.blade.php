@@ -29,6 +29,10 @@
                         <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
                             <p class="text-left py-5">{{ $searchOne->temple_description }}</p>
                         </div>
+                        <h1 class="text-3xl font-bold text-left mx-8 py-5">สถานที่ตั้งของวัด</h1>
+                        <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
+                            <p class="text-left py-5">{{ $searchOne->temple_address }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
