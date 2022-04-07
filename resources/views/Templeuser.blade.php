@@ -13,29 +13,28 @@
 
 <body>
     @include('navbar')
-
-    {{-- <form action="/templeuser" method="GET"> --}}
-    <h1 class="text-5xl font-bold text-center py-5">รายละเอียด</h1>
-    <div class="divider"></div>
-
-    {{-- @foreach ($templeOne as $templeOne) --}}
-        <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
-        <figure>
-            {{-- <img class="w-full h-72 " src="{{ $templeOne->temple_pic_url }}" alt=""> --}}
-        </figure>
+    @foreach ($searchOne as $searchOne)
+        <h1 class="text-5xl font-bold text-center py-5">{{ $searchOne->temple_name }}</h1>
         <div class="divider"></div>
-        <div>
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของวัด</h1>
-                <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
-                    {{-- <p class="py-5">{{ $templeOne->temple_description }}</p> --}}
+
+            <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
+                <figure>
+                    <img class="w-full h-72 " src="{{ $searchOne->temple_pic_url }}" alt="">
+                </figure>
+
+                <div class="divider"></div>
+                <div>
+                    <div class="text-center">
+                        <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของวัด</h1>
+                        <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
+                            <p class="py-5">{{ $searchOne->temple_description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="divider"></div>
-    {{-- @endforeach --}}
+            <div class="divider"></div>
+        @endforeach
 
-    {{-- </form> --}}
 
 </body>
 

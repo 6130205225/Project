@@ -23,18 +23,46 @@ class ActivityController extends Controller
         return view('Activityall', compact('activityTemple'));
     }
 
-    public function getActivities()
+
+
+    public function Onactivitytemple(Request $request)
     {
-        $activityUser = Activity::select(
-            'activities.activity_id',
-            'activities.activity_name',
-            'activities.activity_description',
-            'activitiespics.activity_pic_url'
-        )
+        $Oneactivity = $request->activityid;
+        $activityTwo = Activity::select('activity_name', 'activity_description', 'activity_pic_url')
         ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
-            ->orderBy('activities.activity_id', 'asc')
-            ->get();
-            return view('Activity', compact('activityUser'));
+        ->where('activities.activity_id', '=', $Oneactivity)
+        ->get();
+        return view('Activity', compact('activityTwo'));
     }
+
+
+
+
+
+
+
+    // public function Onactivitytemple(Request $request)
+    // {
+    //     $activityOne = $request->$activityOne;
+    //     $activityTwo = Activity::select('activity_name', 'activity_description', 'activity_pic_url')
+    //     ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+    //     ->where('activity_id', '=', $activityOne)
+    //     ->get();
+    //     return view('Activity', compact('activityTwo'));
+    // }
+
+        // public function getActivities()
+    // {
+    //     $activityUser = Activity::select(
+    //         'activities.activity_id',
+    //         'activities.activity_name',
+    //         'activities.activity_description',
+    //         'activitiespics.activity_pic_url'
+    //     )
+    //     ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+    //         ->orderBy('activities.activity_id', 'asc')
+    //         ->get();
+    //         return view('Activity', compact('activityUser'));
+    // }
 
 }

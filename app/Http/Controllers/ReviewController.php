@@ -24,4 +24,6 @@ class ReviewController extends Controller
         // dd($reviewtemple);
         return view('Reviewall', compact('reviewtemple'));
     }
+
+
 }

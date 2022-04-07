@@ -14,10 +14,10 @@
 
     <div class="input-group flex flex-wrap items-center justify-center ">
         <div class="modal-box text-center bg-base-100 px-11">
-            <h3 class="font-bold text-lg">ชื่อหรือรหัสไม่ถูกต้อง</h3>
-            <p class="py-4">ผู้ใช้งานกรุณากรอกใหม่</p>
+            {{-- <h3 class="font-bold text-lg">ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</h3> --}}
+            <p class="py-4">ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</p>
             <div class="">
-                <a href="{{ route('login.check') }}" class="btn">ตกลง</a>
+                <a href="{{ route('login.check') }}" class="btn btn-warning">ตกลง</a>
             </div>
         </div>
     </div>

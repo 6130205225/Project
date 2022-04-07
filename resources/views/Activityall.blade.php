@@ -30,10 +30,15 @@
                     {{-- <p class="card-title break-all">{{ $activityTemple->activity_id }}</p> --}}
 
                 </div>
+
                 <div class="card-actions justify-end">
-                    <a href="{{ route('activities.show', [$activityTemple->activity_id]) }}"
-                        class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
+                    <form action="/activityOne" method="POST">
+                        @csrf
+                        <input  type="text" name="activityid" value="{{ $activityTemple->activity_id }}">
+                        <button type="submit" class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                    </form>
                 </div>
+
             </div>
             <div class="divider"></div>
         </div>

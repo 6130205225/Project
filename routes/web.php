@@ -98,6 +98,19 @@ Route::get('/wrong', function () {
     )
         ->name("templeuser.show");
 
+    Route::post(
+        '/searchtempleOne',
+        [TempleController::class, 'searchtempleOne']
+    );
+
+    Route::post(
+        '/activityOne',
+        [ActivityController::class, 'Onactivitytemple']
+    );
+
+
+
+
 // Route::get('/templeuser', function () {
 //         return view('Templeuser');
 //     })

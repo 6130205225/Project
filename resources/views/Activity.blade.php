@@ -13,23 +13,27 @@
 
 <body>
     @include('navbar')
-     @foreach ($activityUser as $activityUser)
-    <h1 class="text-5xl font-bold text-center py-5">กิจกรรม</h1>
-    <div class="hero min-h-min bg-base-200 shadow-2xl py-5">
-        <div class="hero-content flex-col lg:flex-row">
-            <div class="w-64 carousel rounded-box">
-                <div class="carousel-item w-full">
-                    <img src="https://api.lorem.space/image/game?w=256&h=400&hash=8B7BCDC2" class="w-full"
-                        alt="Tailwind CSS Carousel component">
+    @foreach ($activityTwo as $activityTwo)
+        <h1 class="text-5xl font-bold text-center py-5">{{ $activityTwo->activity_name }}</h1>
+        <div class="divider"></div>
+
+            <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
+                <figure>
+                    <img class="w-full h-72 " src="{{ $activityTwo->activity_pic_url }}" alt="">
+                </figure>
+
+                <div class="divider"></div>
+                <div>
+                    <div class="text-center">
+                        <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของวัด</h1>
+                        <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
+                            <p class="py-5">{{ $activityTwo->activity_description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat </p>
-
-            </div>
-        </div>
-    </div>
-    @endforeach
+            <div class="divider"></div>
+        @endforeach
 </body>
 
 </html>

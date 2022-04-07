@@ -25,23 +25,45 @@ class TempleController extends Controller
         return view('Homepage', compact('templeHome'));
     }
 
-    public function getTempleuser()
+    public function templeOne()
     {
-        $templeOne = Temple::select(
-            'temples.temple_id',
-            'temples.temple_name',
-            'temple_description',
-            'temple_address',
-            'temple_latitude',
-            'temple_longitude',
-            'fk_user_id',
-            'templepics.temple_pic_url'
-        )
-        ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
-
-            ->orderBy('temples.temple_id', 'asc') // asc= เรียงจากหน้าไปหลัง desc=เรียงจากหลังไปหน้า
-            ->get();
-            return view('Templeuser', compact('templeOne'));
+            return view('Templeuser');
     }
 
+    public function SearchTemple(Request $request)
+    {
+        $search = $request->search;
+        $searchOne = Temple::select('temple_name','temple_description','templepics.temple_pic_url')
+        ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
+        ->where('temple_name', 'LIKE', "%{$search}%")
+        ->get();
+        return view('Templeuser', compact('searchOne'));
+    }
+
+    public function searchtempleOne(Request $request)
+    {
+        $searchTwo = $request->searchTwo;
+        $searchOne = Temple::select('temple_name','temple_description','templepics.temple_pic_url')
+        ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
+        ->where('temple_id', '=', $searchTwo)
+        ->get();
+        return view('Templeuser', compact('searchOne'));
+    }
+
+
+
 }
+
+// 'temples.temple_id',
+// 'temples.temple_name',
+// 'temple_description',
+// 'temple_address',
+// 'temple_latitude',
+// 'temple_longitude',
+// 'fk_user_id',
+// 'templepics.temple_pic_url'
+// )
+// ->join('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
+
+// // ->orderBy('temples.temple_id', 'asc') // asc= เรียงจากหน้าไปหลัง desc=เรียงจากหลังไปหน้า
+// ->get();
