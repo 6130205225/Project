@@ -92,6 +92,11 @@ Route::get('/wrong', function () {
     )
         ->name("templeuser.show");
 
+        Route::post(
+            '/search',
+            [TempleController::class, 'SearchTemple']
+        );
+
     Route::post(
         '/searchtempleOne',
         [TempleController::class, 'searchtempleOne']
