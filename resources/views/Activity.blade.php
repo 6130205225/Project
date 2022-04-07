@@ -25,7 +25,7 @@
                 <div class="divider"></div>
                 <div>
                     <div class="text-center">
-                        <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของวัด</h1>
+                        <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของกิจกรรมวัด</h1>
                         <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
                             <p class="py-5">{{ $activityTwo->activity_description }}</p>
                         </div>

@@ -108,6 +108,13 @@ Route::get('/wrong', function () {
         [ActivityController::class, 'Onactivitytemple']
     );
 
+    Route::post(
+        '/reviewOne',
+        [ReviewController::class, 'Onreviewtemple']
+    );
+
+
+
 
 
 

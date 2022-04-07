@@ -13,28 +13,31 @@
 
 <body>
     @include('navbar')
-    {{-- <img src="https://i.pinimg.com/736x/83/01/1c/83011ceb5ba721bc7e251a763181783e.jpg" alt=""> --}}
     <h1 class="text-5xl font-bold text-center py-5">รีวิวทั้งหมด</h1>
 
     @foreach ($reviewtemple as $reviewtemple)
-        <div class="card card-compact bg-base-100 shadow-sm mx-10 my-10">
-            <div class="grid gap-5 md:grid-cols-3 grid-cols-1 mx-10">
+    <div class="card card-compact bg-base-100 shadow-sm mx-10 my-10">
+        <div class="grid gap-5 md:grid-cols-3 grid-cols-1 mx-10">
+            <figure class="">
                 <img class="w-4/5 h-48" src=" {{ $reviewtemple->review_pic_url }}" alt="">
+            </figure>
 
-                {{-- เป็นการดึงจาก Array ที่ชื่อว่า review_pic_url --}}
-
-                <div class="card-body ">
-                    <h3 class="text-3xl font-bold">{{ $reviewtemple->review_topic }}</h3>
-                    {{-- <h2 class="text-xl">{{ $reviewtemple->review_description }}</h2> --}}
-                </div>
-                <div class="card-actions justify-end">
-                    <a href="{{ route('reviews.create') }}" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
-                </div>
+            <div class="card-body ">
+                <p class="text-3xl font-bold break-all">{{ $reviewtemple->review_topic }}</p>
             </div>
-            <div class="divider"></div>
-        </div>
-    @endforeach
 
+            <div class="card-actions justify-end">
+                <form action="/reviewOne" method="POST">
+                    @csrf
+                    <input hidden type="text" name="reviewid" value="{{ $reviewtemple->review_id }}">
+                    <button type="submit" class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="divider"></div>
+    </div>
+@endforeach
 
 
 </body>

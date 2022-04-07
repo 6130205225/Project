@@ -34,7 +34,7 @@
                 <div class="card-actions justify-end">
                     <form action="/activityOne" method="POST">
                         @csrf
-                        <input  type="text" name="activityid" value="{{ $activityTemple->activity_id }}">
+                        <input hidden type="text" name="activityid" value="{{ $activityTemple->activity_id }}">
                         <button type="submit" class="btn btn-primary">รายละเอียดเพิ่มเติม</button>
                     </form>
                 </div>

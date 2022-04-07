@@ -27,7 +27,7 @@
                     <div class="text-center">
                         <h1 class="text-3xl font-bold text-left mx-8 py-5">รายละเอียดของวัด</h1>
                         <div class="grid gap-5 md:grid-cols-1 grid-cols-1 mx-10">
-                            <p class="py-5">{{ $searchOne->temple_description }}</p>
+                            <p class="text-left py-5">{{ $searchOne->temple_description }}</p>
                         </div>
                     </div>
                 </div>
