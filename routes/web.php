@@ -112,7 +112,28 @@ Route::get('/wrong', function () {
         [ReviewController::class, 'Onreviewtemple']
     );
 
+    Route::post(
+        '/searchOO',
+        [TempleController::class, 'SearchTempleOO']
+    );
 
+    Route::post(
+        '/search',
+        [TempleController::class, 'SearchTemple']
+    );
+
+    Route::post(
+        '/searchAt',
+        [ActivityController::class, 'SearchActivity']
+    );
+
+    Route::get('/templeadmin', function () {
+        return view('Templeadmin');
+    });
+
+    Route::get('/activityTemple', function () {
+        return view('ActivityTemple');
+    });
 
 
 

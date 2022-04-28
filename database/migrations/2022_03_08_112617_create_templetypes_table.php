@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('templetypes', function (Blueprint $table) {
             $table->bigIncrements('temple_type_id');
-            $table->string('temple_type_name', 45);
+            $table->string('temple_type_name', 100);
             $table->timestamps();
         });
     }

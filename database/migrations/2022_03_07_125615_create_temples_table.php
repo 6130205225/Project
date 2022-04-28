@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('temples', function (Blueprint $table) {
             $table->bigIncrements('temple_id');
             $table->string('temple_name', 45)->unique();
-            $table->string('temple_description', 45);
-            $table->string('temple_address', 45);
+            $table->string('temple_description', 10000);
+            $table->string('temple_address', 10000);
             $table->string('temple_latitude');
             $table->string('temple_longitude');
 

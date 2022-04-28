@@ -22,7 +22,7 @@ return new class extends Migration
             $table->bigInteger('fk_review_id')->unsigned();
             $table->foreign('fk_review_id')->references('review_id')->on('reviews');
 
-            $table->string('review_comment_detail', 45);
+            $table->string('review_comment_detail', 100);
             $table->integer('review_comment_by');
             $table->timestamps();
         });

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->bigInteger('fk_temple_id')->unsigned();
             $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
 
-            $table->string('review_topic', 45);
-            $table->string('review_description', 250);
+            $table->string('review_topic', 100);
+            $table->string('review_description', 10000);
 
             $table->bigInteger('fk_review_create_by')->unsigned();
             $table->foreign('fk_review_create_by')->references('user_id')->on('users');

@@ -25,7 +25,6 @@ class ActivityController extends Controller
     }
 
 
-
     public function Onactivitytemple(Request $request)
     {
         $Oneactivity = $request->activityid;
@@ -34,11 +33,23 @@ class ActivityController extends Controller
         ->join('temples', 'activities.fk_temple_id', '=', 'temples.temple_id')
         ->where('activities.activity_id', '=', $Oneactivity)
         ->get();
-        return view('Activity', compact('activityTwo'));
+        return view('Activity', compact('activityTwo')); //compact หมายถึง การส่งตัวแปรไปพร้อม View ด้านซ้าย
     }
 
+    public function SearchActivity(Request $request)
+    {
+        $searchAt = $request->searchAt; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
+        //------------- ข้างล่างนี้คือการ Query ข้อมูล (การค้นหาข้อมูล) -------------------
+        $searchOneAt = Activity::select('activities.activity_name', 'activities.activity_description', 'activitiespics.activity_pic_url')
+        ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+        ->where('activity_name', 'LIKE', "%{$searchAt}%") //LIKE คือถ้ามีคำที่เหมือนกับ ตัวแปรด้านขวา
+        ->get();
+        //------------- สิ้นสุดการ Query ข้อมูล ----------------------------
+        // dd($searchOneAt);
+        return view('ActivitySearch', compact('searchOneAt')); //ด้านในของ return จะสังเกตุได้ว่าไม่มี $ เพราะใน laravel9 ได้อัพเดท เป็นการใส่ '' แทน $
+    }
 
-
+}
 
 
 
@@ -67,4 +78,4 @@ class ActivityController extends Controller
     //         return view('Activity', compact('activityUser'));
     // }
 
-}
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Temple; // เอาไว้โยงข้อมูลจาก Model
 use App\Models\Templepic;
+use App\Models\Activity;
 
 use Illuminate\Http\Request;
 
@@ -50,7 +51,6 @@ class TempleController extends Controller
         ->get();
         return view('Templeuser', compact('searchOne'));
     }
-
 
 
 }

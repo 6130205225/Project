@@ -24,14 +24,18 @@ class UserController extends Controller
         // return redirect('/');
         $loginhome = User::select(
             'username',
-            'password'
+            'password',
+            'fk_user_role_id'
         )
         ->where('username', '=', $username)
         ->where('password', '=', $password)
         ->get();
-        // dd(count($loginhome));
+        // dd($loginhome[0]['fk_user_role_id']);
             if (count($loginhome)) {
                 $request->session()->put('user', 'arm');
+                if ($loginhome[0]['fk_user_role_id']==2){
+                    return redirect('/homepage');
+                }
                 return redirect('/homepage');
                 // dd('จริง');
             }

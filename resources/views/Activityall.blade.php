@@ -16,6 +16,18 @@
     @include('navbar')
     <h1 class="text-5xl font-bold text-center py-5 ">กิจกรรมทั้งหมด</h1>
 
+    <form action="/searchAt" method="POST">
+        @csrf
+        {{-- <div class="form-control"> --}}
+        <div class="input-group flex flex-wrap items-center justify-center ">
+            <input type="text" placeholder="ค้นหา" name="searchAt" class="input input-bordered ">
+            <button type="submit" class="btn btn-primary">
+                ค้นหา
+            </button>
+        </div>
+        {{-- </div> --}}
+    </form>
+
     @foreach ($activityTemple as $activityTemple)
         <div class="card card-compact bg-base-100 shadow-sm mx-10 my-10">
             <div class="grid gap-5 md:grid-cols-3 grid-cols-1 mx-10">
