@@ -17,7 +17,7 @@
     <div class="lg:ml-24 lg:mr-24 m-10 ">
         <label class="block">
             <h3 class="font-bold">ชื่อวัด</h3>
-            <input type="text" class="form-input mt-1 block w-full border py-3" placeholder="ชื่อวัด">
+            <input type="text" class="form-input mt-1 block w-full border py-3" placeholder="กรุณากรอกชื่อวัด">
         </label>
         <div class="divider"></div>
         <label class="block mt-4">
@@ -28,10 +28,20 @@
             </select>
         </label>
         <div class="divider"></div>
+        <div>
+            <span class="font-bold">เพิ่มรูปภาพ</span>
+            <form class="imgForm" action="leanform.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="upload" />
+                <input type="submit"  name="savepictemple"  value="upload" />
+            </form>
+        </div>
         <label class="block mt-6">
             <span class="font-bold">รายละเอียดของวัด</span>
-            <textarea class="form-textarea mt-1 block w-full border " rows="15" placeholder="รายละเอียดของวัด"></textarea>
+            <textarea class="form-textarea mt-1 block w-full border " rows="15" placeholder="กรุณากรอกรายละเอียดของวัด"></textarea>
         </label>
+        <div class="form-control mt-6 btn btn-primary">
+            <button type="submit" value="submit">บันทึก</button>
+        </div>
     </div>
 
 </body>

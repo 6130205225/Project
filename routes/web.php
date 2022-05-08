@@ -135,6 +135,17 @@ Route::get('/wrong', function () {
         return view('ActivityTemple');
     });
 
+    Route::get('/adminhome', function () {
+        return view('Adminhome');
+    });
+
+    Route::get('/adminuser', function () {
+        return view('Adminuser');
+    });
+
+    Route::get('/admintempleuser', function () {
+        return view('Admintempleuser');
+    });
 
 
 
