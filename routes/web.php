@@ -147,6 +147,12 @@ Route::get('/wrong', function () {
         return view('Admintempleuser');
     });
 
+    Route::post(
+        '/searchRw',
+        [ReviewController::class, 'SearchReview']
+    );
+
+
 
 
 // Route::get('/templeuser', function () {

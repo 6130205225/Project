@@ -37,4 +37,17 @@ class ReviewController extends Controller
         return view('Review', compact('Tworeview'));
     }
 
+    public function SearchReview(Request $request)
+    {
+        $searchRw = $request->searchRw; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรกด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
+        //------------- ข้างล่างนี้คือการ Query ข้อมูล (การค้นหาข้อมูล) -------------------
+        $searchOneRw = Review::select('reviews.review_topic', 'reviews.review_description', 'reviewpics.review_pic_url')
+        ->join('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
+        ->where('review_topic', 'LIKE', "%{$searchRw}%") //LIKE คือถ้ามีคำที่เหมือนกับ ตัวแปรด้านขวา
+        ->get();
+        //------------- สิ้นสุดการ Query ข้อมูล ----------------------------
+        // dd($searchOneRw);
+        return view('ReviewSearch', compact('searchOneRw')); //ด้านในของ return จะสังเกตุได้ว่าไม่มี $ เพราะใน laravel9 ได้อัพเดท เป็นการใส่ '' แทน $
+    }
+
 }

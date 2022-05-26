@@ -53,6 +53,14 @@ class TempleController extends Controller
     }
 
 
+
+    // public function (Request $request)
+    // {
+
+    // }
+
+
+
 }
 
 // 'temples.temple_id',

@@ -13,6 +13,8 @@
 
 <body>
     @include('navbartemple')
+    {{-- <form action="activityTemple" method="POST"> --}}
+    @csrf
     <h1 class="text-3xl font-bold text-center pt-5">เพิ่มกิจกรรมของวัด</h1>
     <div class="lg:ml-24 lg:mr-24 m-10 ">
         <label class="block">
@@ -22,9 +24,9 @@
         <div class="divider"></div>
         <label class="block mt-4">
             <span class="font-bold">เพิ่มรูปภาพกิจกรรม</span><br>
-            <form class="imgForm" action="leanform.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="upload" />
-                <input type="submit"  name="save"  value="upload" />
+            <form action="<?=$_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file[]" accept="image/png, image/gif, image/jpeg" multiple>
+                <input type="submit" value="อัพโหลด">
             </form>
         </label>
         <div class="divider"></div>

@@ -38,7 +38,7 @@ class ActivityController extends Controller
 
     public function SearchActivity(Request $request)
     {
-        $searchAt = $request->searchAt; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
+        $searchAt = $request->searchAt; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรกด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
         //------------- ข้างล่างนี้คือการ Query ข้อมูล (การค้นหาข้อมูล) -------------------
         $searchOneAt = Activity::select('activities.activity_name', 'activities.activity_description', 'activitiespics.activity_pic_url')
         ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
