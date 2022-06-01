@@ -13,6 +13,7 @@
 
 <body>
     @include('navbaradmin')
+    @csrf
 
 </body>
 

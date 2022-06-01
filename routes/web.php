@@ -131,6 +131,11 @@ Route::get('/wrong', function () {
         return view('Templeadmin');
     });
 
+    Route::post('
+        /templeadmin',
+        [TempleController::class, 'Savetempleadmin']
+    );
+
     Route::get('/activityTemple', function () {
         return view('ActivityTemple');
     });

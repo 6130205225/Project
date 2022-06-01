@@ -52,6 +52,16 @@ class TempleController extends Controller
         return view('Templeuser', compact('searchOne'));
     }
 
+    public function Savetempleadmin(Request $request)
+    {
+        $savetemple1 = $request->temple_name;
+        $savetemple2 = $request->fk_temple_type_id;
+        $savetemple3 = $request->temple_description;
+        // dd($savetemple1.$savetemple2.$savetemple3);
+        return view('Templeadmin', compact(''));
+    }
+
+
 
 
     // public function (Request $request)

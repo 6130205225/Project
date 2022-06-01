@@ -29,3 +29,4 @@
             <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
         </div>
     @endif
+</div>

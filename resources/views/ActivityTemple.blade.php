@@ -26,7 +26,7 @@
             <span class="font-bold">เพิ่มรูปภาพกิจกรรม</span><br>
             <form action="<?=$_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file[]" accept="image/png, image/gif, image/jpeg" multiple>
-                <input type="submit" value="อัพโหลด">
+                <input class="btn btn-info" type="submit" value="อัพโหลด">
             </form>
         </label>
         <div class="divider"></div>
