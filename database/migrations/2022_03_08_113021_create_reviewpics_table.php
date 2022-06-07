@@ -17,10 +17,10 @@ return new class extends Migration
             $table->bigIncrements('review_pic_id');
 
             $table->bigInteger('fk_review_id')->unsigned();
-            $table->foreign('fk_review_id')->references('review_id')->on('reviews');
+            $table->foreign('fk_review_id')->references('review_id')->on('reviews')->onDelete('cascade');
 
             $table->bigInteger('fk_temple_id')->unsigned();
-            $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
+            $table->foreign('fk_temple_id')->references('temple_id')->on('temples')->onDelete('cascade');
 
             $table->string('review_pic_url');
             $table->timestamps();

@@ -10,6 +10,7 @@
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a href=/admintempleuser>จัดการวัด</a></li>
                 <li><a href=/adminuser>จัดการผู้ใช้งาน</a></li>
+                <li><a href=/adminhome>จัดการกิจกรรม</a></li>
             </ul>
         </div>
         {{-- <a href="{{ route('home.show') }}" class=" btn btn-ghost normal-case text-xl">หน้าหลัก</a> --}}
@@ -18,6 +19,7 @@
         <ul class="menu menu-horizontal p-0">
             <li><a href=/admintempleuser>จัดการวัด</a></li>
             <li><a href=/adminuser>จัดการผู้ใช้งาน</a></li>
+            <li><a href=/adminhome>จัดการกิจกรรม</a></li>
         </ul>
     </div>
     @if (Session::has('user'))

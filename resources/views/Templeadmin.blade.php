@@ -13,49 +13,52 @@
 
 <body>
     @include('navbartemple')
-    <form action="templeadmin" method="POST">
+    {{-- {{dd($showone);}} --}}
+    <form action="templeadmin" method="POST" enctype="multipart/form-data">
         @csrf
-        <h1 class="text-3xl font-bold text-center pt-5">จัดการรายละเอียดของวัด</h1>
+        <h1 class="text-3xl font-bold text-center pt-5">จัดการข้อมูลวัดของวัด</h1>
         <div class="lg:ml-24 lg:mr-24 m-10 ">
             <label class="block">
                 <h3 class="font-bold">ชื่อวัด</h3>
                 <input type="text" class="form-input mt-1 block w-full border py-3" placeholder="กรุณากรอกชื่อวัด"
-                    id="temple_name" name="temple_name" value="{{ old('temple_name') }}">
+                    id="temple_name" name="temple_name">
 
             </label>
             <div class="divider"></div>
             <label class="block mt-4">
                 <span class="font-bold">กรุณาเลือกประเภทวัด</span><br>
+                <div>1 = วัดทั่วไป, 2 = วัดป่า</div>
                 <select class="form-select mt-1 block w-full py-3" name="fk_temple_type_id">
-                    <option>วัดทั่วไป</option>
-                    <option>วัดป่า</option>
+                    <option>1</option>
+                    <option>2</option>
                 </select>
             </label>
 
-            {{-- <div class="form-control">
-                <label class="cursor-pointer label">
-                    <input type="radio" id="templeUone" name="fk_temple_type_id" value="3"
-                        class="radio checked:bg-blue-500">
-                    <span class="label-text">วัดทั่วไป</span>
-                    <input type="radio" id="templeUtwo" name="fk_temple_type_id" value="2"
-                        class="radio checked:bg-blue-500">
-                    <span class="label-text">วัดป่า</span>
-                </label>
-            </div> --}}
-
             <div class="divider"></div>
-            {{-- <div>
-                <span class="font-bold">เพิ่มรูปภาพ</span>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="file[]" accept="image/png, image/gif, image/jpeg" multiple>
-                    <input class="btn btn-info" type="submit" value="อัพโหลด">
-                </form>
-            </div> --}}
+            <div>
+                <span class="font-bold">เพิ่มรูปภาพ
+
+                    <input type="file" name="uploadphoto"
+                        class="block w-full text-sm text-slate-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-violet-50 file:text-violet-700
+                hover:file:bg-violet-100
+                " /></span>
+            </div>
 
             <label class="block mt-6">
                 <span class="font-bold">รายละเอียดของวัด</span>
                 <textarea class="form-textarea mt-1 block w-full border" name="temple_description" rows="15"
                     placeholder="กรุณากรอกรายละเอียดของวัด"></textarea>
+            </label>
+
+            <div class="divider"></div>
+            <label class="block mt-6">
+                <span class="font-bold">เพิ่มรายละเอียดที่อยู่ของวัด</span>
+                <textarea class="form-textarea mt-1 block w-full border" name="temple_address" rows="5"
+                    placeholder="กรุณากรอกรายละเอียดกิจกรรมของวัด"></textarea>
             </label>
 
             <div class="form-control mt-6 btn btn-primary">

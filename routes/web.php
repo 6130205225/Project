@@ -5,6 +5,7 @@ use App\Http\Controllers\TempleController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -127,30 +128,73 @@ Route::get('/wrong', function () {
         [ActivityController::class, 'SearchActivity']
     );
 
-    Route::get('/templeadmin', function () {
-        return view('Templeadmin');
-    });
+    // Route::get('/templeadmin', function () {
+    //     return view('Templeadmin');
+    // });
+
+    Route::get(
+        '/templeadmin',
+        [TempleController::class, 'Showadmintemple']
+    );
 
     Route::post('
         /templeadmin',
         [TempleController::class, 'Savetempleadmin']
     );
 
-    Route::get('/activityTemple', function () {
-        return view('ActivityTemple');
-    });
+    // Route::get('/activityTemple', function () {
+    //     return view('ActivityTemple');
+    // });
 
-    Route::get('/adminhome', function () {
-        return view('Adminhome');
-    });
+    Route::get(
+        '/activityTemple',
+        [TempleController::class, 'Showadminactivitytemple']
+    );
 
-    Route::get('/adminuser', function () {
-        return view('Adminuser');
-    });
+    Route::post('
+        /activityTemple',
+        [TempleController::class, 'SaveactivityTemple']
+    );
 
-    Route::get('/admintempleuser', function () {
-        return view('Admintempleuser');
-    });
+    Route::get(
+        '/adminuser',
+        [AdminController::class, 'Adminuserone']
+    )
+        ->name("adminuser.delete");
+
+    Route::post('
+        /deleteUser',
+        [AdminController::class, 'Deleteuser']
+    );
+
+    Route::get(
+        '/admintempleuser',
+        [AdminController::class, 'Adminusertwo']
+    )
+        ->name("admintempleuser.delete");
+
+
+
+    // Route::post('
+    //     /admintempleuser',
+    //     [AdminController::class, 'Adminusertwo']
+    // );
+
+    Route::post('
+        /deleteTemple',
+        [AdminController::class, 'deleteTemple']
+    );
+
+    Route::get(
+        '/adminhome',
+        [AdminController::class, 'Adminusertree']
+    )
+        ->name("adminhome.delete");
+
+    Route::post('
+    /deleteActivity',
+    [AdminController::class, 'deleteActivity']
+    );
 
     Route::post(
         '/searchRw',
@@ -158,6 +202,22 @@ Route::get('/wrong', function () {
     );
 
 
+        // Route::get('/adminhome', function () {
+    //     return view('Adminhome');
+    // });
+
+       // Route::post('
+    // /adminuser',
+    // [AdminController::class, 'Adminuserone']
+    // );
+
+    // Route::get('/adminuser', function () {
+    //     return view('Adminuser');
+    // });
+
+    // Route::get('/admintempleuser', function () {
+    //     return view('Admintempleuser');
+    // });
 
 
 // Route::get('/templeuser', function () {

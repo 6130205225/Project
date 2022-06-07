@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('temples', function (Blueprint $table) {
             $table->bigInteger('fk_temple_type_id')->unsigned(); //_create_by สร้างโดย
-            $table->foreign('fk_temple_type_id')->references('temple_type_id')->on('templetypes');
+            $table->foreign('fk_temple_type_id')->references('temple_type_id')->on('templetypes')->onDelete('cascade');
         });
     }
 

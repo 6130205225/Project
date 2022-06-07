@@ -34,7 +34,7 @@ class UserController extends Controller
             if (count($loginhome)) {
                 $request->session()->put('user', 'arm');
                 if ($loginhome[0]['fk_user_role_id']==2){
-                    return redirect('/homepage');
+                    return redirect('/templeadmin');
                 }
                 return redirect('/homepage');
                 // dd('จริง');
@@ -63,7 +63,6 @@ class UserController extends Controller
         $passwords = $request->passwords;
         $fk_user_role_id = $request->fk_user_role_id;
         // dd('ชื่อจริง'.$user_firstname.' นามสกุล'.$user_lastname.' ชื่อผู้ใช้'.$username.' รหัสผ่าน'.$password. ' ยืนยันรหัส'.$passwords.' บทบาท'.$fk_user_role_id);
-
 
         // dd('saasf');
 

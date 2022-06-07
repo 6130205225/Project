@@ -15,9 +15,9 @@ class ActivityController extends Controller
             'activities.activity_id',
             'activities.activity_name',
             'activities.activity_description',
-            'activitiespics.activity_pic_url'
+            'activitypics.activity_pic_url'
         )
-            ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+            ->leftJoin('activitypics', 'activities.activity_id', '=', 'activitypics.fk_activity_id')
             ->orderBy('activities.activity_id', 'asc')
             ->get();
 
@@ -29,7 +29,7 @@ class ActivityController extends Controller
     {
         $Oneactivity = $request->activityid;
         $activityTwo = Activity::select('temple_name','activity_name', 'activity_description', 'activity_pic_url')
-        ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+        ->leftJoin('activitypics', 'activities.activity_id', '=', 'activitypics.fk_activity_id')
         ->join('temples', 'activities.fk_temple_id', '=', 'temples.temple_id')
         ->where('activities.activity_id', '=', $Oneactivity)
         ->get();
@@ -40,8 +40,8 @@ class ActivityController extends Controller
     {
         $searchAt = $request->searchAt; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรกด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
         //------------- ข้างล่างนี้คือการ Query ข้อมูล (การค้นหาข้อมูล) -------------------
-        $searchOneAt = Activity::select('activities.activity_name', 'activities.activity_description', 'activitiespics.activity_pic_url')
-        ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+        $searchOneAt = Activity::select('activities.activity_name', 'activities.activity_description', 'activitypics.activity_pic_url')
+        ->leftJoin('activitypics', 'activities.activity_id', '=', 'activitypics.fk_activity_id')
         ->where('activity_name', 'LIKE', "%{$searchAt}%") //LIKE คือถ้ามีคำที่เหมือนกับ ตัวแปรด้านขวา
         ->get();
         //------------- สิ้นสุดการ Query ข้อมูล ----------------------------
@@ -58,7 +58,7 @@ class ActivityController extends Controller
     // {
     //     $activityOne = $request->$activityOne;
     //     $activityTwo = Activity::select('activity_name', 'activity_description', 'activity_pic_url')
-    //     ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+    //     ->join('activitypics', 'activities.activity_id', '=', 'activitypics.fk_activity_id')
     //     ->where('activity_id', '=', $activityOne)
     //     ->get();
     //     return view('Activity', compact('activityTwo'));
@@ -70,9 +70,9 @@ class ActivityController extends Controller
     //         'activities.activity_id',
     //         'activities.activity_name',
     //         'activities.activity_description',
-    //         'activitiespics.activity_pic_url'
+    //         'activitypics.activity_pic_url'
     //     )
-    //     ->join('activitiespics', 'activities.activity_id', '=', 'activitiespics.activity_id')
+    //     ->join('activitypics', 'activities.activity_id', '=', 'activitypics.fk_activity_id')
     //         ->orderBy('activities.activity_id', 'asc')
     //         ->get();
     //         return view('Activity', compact('activityUser'));

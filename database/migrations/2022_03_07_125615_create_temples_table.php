@@ -16,13 +16,12 @@ return new class extends Migration
         Schema::create('temples', function (Blueprint $table) {
             $table->bigIncrements('temple_id');
             $table->string('temple_name', 45)->unique();
-            $table->string('temple_description', 10000);
-            $table->string('temple_address', 10000);
-            $table->string('temple_latitude');
-            $table->string('temple_longitude');
+
+            $table->text('temple_description');
+            $table->string('temple_address', 255);
 
             $table->bigInteger('fk_user_id')->unsigned(); //_create_by สร้างโดย
-            $table->foreign('fk_user_id')->references('user_id')->on('users');
+            $table->foreign('fk_user_id')->references('user_id')->on('users')->onDelete('cascade');
 
 
 

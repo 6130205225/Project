@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activitiespics', function (Blueprint $table) {
+        Schema::create('activitypics', function (Blueprint $table) {
             $table->bigIncrements('activity_pic_id');
 
-            $table->bigInteger('activity_id')->unsigned();
-            $table->foreign('activity_id')->references('activity_id')->on('activities');
+            $table->bigInteger('fk_activity_id')->unsigned();
+            $table->foreign('fk_activity_id')->references('activity_id')->on('activities')->onDelete('cascade');
 
             $table->bigInteger('fk_temple_id')->unsigned();
-            $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
+            $table->foreign('fk_temple_id')->references('temple_id')->on('temples')->onDelete('cascade');
 
             $table->string('activity_pic_url');
             $table->timestamps();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activitiespics');
+        Schema::dropIfExists('activitypics');
     }
 };

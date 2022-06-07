@@ -19,7 +19,7 @@ class ReviewController extends Controller
             'reviews.review_description',
             'reviewpics.review_pic_url'
         ) //คือการดึงข้อมูล
-            ->join('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
+            ->leftJoin('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
             ->orderBy('reviews.review_id', 'asc') // asc= เรียงจากหน้าไปหลัง desc=เรียงจากหลังไปหน้า
             ->get();
         // dd($reviewtemple);
@@ -30,7 +30,7 @@ class ReviewController extends Controller
     {
         $Onereview = $request->reviewid;
         $Tworeview = Review::select('temple_name','review_topic', 'review_description', 'review_pic_url')
-        ->join('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
+        ->leftJoin('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
         ->join('temples', 'reviews.fk_temple_id', '=', 'temples.temple_id')
         ->where('reviews.review_id', '=', $Onereview)
         ->get();
@@ -42,7 +42,7 @@ class ReviewController extends Controller
         $searchRw = $request->searchRw; //เอาไว้เก็บตัวแปรที่รับมา ตัวแรกด้านซ้ายจะเป็นอะไรก็ได้ แต่ตัวแปรด้านขวาต้องเป็นชื่อที่ตรงกับ name ในหน้า view
         //------------- ข้างล่างนี้คือการ Query ข้อมูล (การค้นหาข้อมูล) -------------------
         $searchOneRw = Review::select('reviews.review_topic', 'reviews.review_description', 'reviewpics.review_pic_url')
-        ->join('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
+        ->leftJoin('reviewpics', 'reviews.review_id', '=', 'reviewpics.fk_review_id')
         ->where('review_topic', 'LIKE', "%{$searchRw}%") //LIKE คือถ้ามีคำที่เหมือนกับ ตัวแปรด้านขวา
         ->get();
         //------------- สิ้นสุดการ Query ข้อมูล ----------------------------

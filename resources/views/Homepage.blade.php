@@ -38,6 +38,7 @@
                     <div class="card card-compact m-auto p-auto bg-base-100 shadow-xl w-full h-full ">
                         <figure><img class="w-full h-72 " src="{{ $templeHome->temple_pic_url }}" alt="">
                         </figure>
+                        {{-- {{dd($templeHome->temple_pic_url);}} --}}
                         <div class="card-body">
                             <h2 class="card-title">{{ $templeHome->temple_name }}</h2>
                             <div class="card-actions justify-end">
@@ -53,6 +54,7 @@
                             </div>
                         </div>
                     </div>
+
                 @endforeach
             </div>
             {{-- <div class="btn-group justify-center">

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->bigInteger('fk_user_role_id')->unsigned(); //_create_by สร้างโดย
-            $table->foreign('fk_user_role_id')->references('user_role_id')->on('userroles');
+            $table->foreign('fk_user_role_id')->references('user_role_id')->on('userroles')->onDelete('cascade');
         });
     }
 

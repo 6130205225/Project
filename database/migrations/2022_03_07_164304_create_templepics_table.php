@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('temple_pic_id');
 
             $table->bigInteger('fk_temple_id')->unsigned();
-            $table->foreign('fk_temple_id')->references('temple_id')->on('temples');
+            $table->foreign('fk_temple_id')->references('temple_id')->on('temples')->onDelete('cascade');
 
             $table->string('temple_pic_url');
             $table->timestamps();
