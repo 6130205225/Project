@@ -63,10 +63,15 @@ Route::get('/review', function () {
 })
     ->name("reviews.create");
 
-Route::post('/loginhome',
-    [UserController::class, 'loginhome']
+Route::post('/authenticate',//ตัวทดสอบการเก็บค่า id
+    [UserController::class, 'authenticate']
  )
     ->name("login.show");
+
+//     Route::post('/loginhome',//ตัวเดิมแต่เก็บ id ไม่ได้
+//     [UserController::class, 'loginhome']
+//  )
+//     ->name("login.show");
 
 Route::post('/registerhome',
     [UserController::class, 'registerhome']

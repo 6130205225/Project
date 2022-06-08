@@ -8,6 +8,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 
@@ -19,12 +21,12 @@
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <th>temple_id</th>
-                        <th>temple_name</th>
-                        <th>temple_description</th>
-                        <th>temple_address</th>
+                        <th class="text-base">ลำดับ</th>
+                        <th class="text-base">ชื่อวัด</th>
+                        <th class="text-base">รายละเอียด</th>
+                        <th class="text-base">ที่ตั้ง</th>
                         {{-- <th>fk_temple_type_id</th> --}}
-                        <th></th>
+                        <th class="text-base">จัดการ</th>
                     </tr>
                 </thead>
                 <form action="deleteTemple" method="POST">
@@ -32,13 +34,17 @@
                     @foreach ($admintempleuerone as $admintempleuerone)
                         <tbody>
                             <tr>
-                                <th>{{ $admintempleuerone->temple_id }}</th>
-                                <td>{{ $admintempleuerone->temple_name }}</td>
-                                <td>{{ $admintempleuerone->temple_description }}</td>
-                                <td>{{ $admintempleuerone->temple_address }}</td>
+                                <th class="form-input w-0.5 border py-3">{{ $admintempleuerone->temple_id }}</th>
+                                <td class="form-input w-0.5 border py-3">{{ $admintempleuerone->temple_name }}</td>
+                                <td class="form-input w-0.5 border py-3">
+                                    {{ $admintempleuerone->temple_description }}
+                                </td>
+                                <td class="form-input w-full border py-3">{{ $admintempleuerone->temple_address }}</td>
                                 {{-- <td>{{ $admintempleuerone->fk_temple_type_id }}</td> --}}
-                                <td><input type="submit" name="temple_id" value="{{ $admintempleuerone->temple_id }}"
-                                        class="btn btn-error">
+                                <td class="form-input w-full border py-3">
+                                    <button type="submit"  name="temple_id" value="{{ $admintempleuerone->temple_id }}">
+                                        <i class="material-icons" style="font-size:48px;color:red">delete</i>
+                                    </button>
                                 </td>
                                 {{-- <td><button type="submit" class="btn btn-error">ลบวัด</button></td> --}}
                             </tr>

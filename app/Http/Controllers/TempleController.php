@@ -67,7 +67,6 @@ class TempleController extends Controller
         $savetemple3 = $request->temple_description;
         $savetemple4 = $request->temple_address;
         $savetemple5 = $request->uploadphoto;
-        // $userid = User::select('user_id')->get();
 
         // dd($savetemple6[0]['temple_id']);
         $fileName = '/uploads/'.time().'.'.$request->uploadphoto->extension();
@@ -78,24 +77,23 @@ class TempleController extends Controller
         // dd($savetemple6);
             // dd(public_path());
 
-        dd($userid->id);
+        // dd($userid->id);
 
-        $SaveidUsertemple = User::select('user_id')
-        ->where('fk_user_id', '=', 1)
-        ->get();
-
-
+        // $SaveidUsertemple = User::select('user_id')
+        // ->where('fk_user_id', '=', 1)
+        // ->get();
+        // เป็นการทดสอบการเก็บค่า id ของระบบ
 
         DB::table('temples')->insert([
             'temple_name' => $savetemple1,
             'fk_temple_type_id' => $savetemple2,
             'temple_description' => $savetemple3,
             'temple_address' => $savetemple4,
-            'fk_user_id' => 1
+            'fk_user_id' => auth()->user()->user_id //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
         ]);
 
         $savetemple6 = Temple::select('temple_id')
-        ->where('fk_user_id', '=', 1)
+        ->where('fk_user_id', '=', auth()->user()->user_id) //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
         ->get();
 
 
@@ -103,6 +101,12 @@ class TempleController extends Controller
             'fk_temple_id' => $savetemple6[0]['temple_id'],
             'temple_pic_url' => $fileName,
         ]);
+
+
+        // dd('sgassgas');
+        // $abc = $savetemple3;
+        // substr_replace($abc,’_-_’,5)  ;
+
         // dd($savetemple1.$savetemple2.$savetemple3);
         return view('Templeadmin');
     }
@@ -125,11 +129,12 @@ class TempleController extends Controller
     {
         $saveactivity1 = $request->activity_name;
         $saveactivity2 = Temple::select('temple_id')
-        ->where('fk_user_id', '=', 1)
+        ->where('fk_user_id', '=', auth()->user()->user_id)
         ->get();
+
         $saveactivity3 = $request->activity_description;
 
-        $useridone = User::select('user_id')->get();
+        // dd(auth()->user()->user_id);
         // dd($saveactivity2);
         // dd($saveactivity1.$saveactivity2.$saveactivity3);
         // dd($saveactivity2[0]['temple_id']);
@@ -146,14 +151,14 @@ class TempleController extends Controller
             'activity_name' => $saveactivity1,
             'fk_temple_id' => $saveactivity2[0]['temple_id'],
             'activity_description' => $saveactivity3,
-            'fk_user_id' => 1
+            'fk_user_id' => auth()->user()->user_id
         ]);
         // dd($saveactivity1.$saveactivity2.$saveactivity3);
 
         // dd($PhotoActivity->id);
 
         $saveactivity4 = Activity::select('activity_id')
-        ->where('fk_temple_id', '=', 1)
+        ->where('fk_temple_id', '=', $saveactivity2)
         ->get();
 
         // dd($Savephotoone->id);

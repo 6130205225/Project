@@ -8,6 +8,8 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 
@@ -21,12 +23,12 @@
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <th>user_id</th>
-                        <th>user_firstname</th>
-                        <th>user_lastname</th>
-                        <th>username</th>
-                        <th>fk_user_role_id</th>
-                        <th></th>
+                        <th class="text-base">ลำดับ</th>
+                        <th class="text-base">ชื่อผู้ใช้</th>
+                        <th class="text-base">ชื่อ</th>
+                        <th class="text-base">นามสุกล</th>
+                        <th class="text-base">ประเภท</th>
+                        <th class="text-base">จัดการ</th>
                     </tr>
                 </thead>
                 <form action="deleteUser" method="POST">
@@ -34,23 +36,23 @@
                     @foreach ($adminHome as $adminHome)
                         <tbody>
                             <tr>
-                                <th>{{ $adminHome->user_id }}</th>
-                                <td>{{ $adminHome->user_firstname }}</td>
-                                <td>{{ $adminHome->user_lastname }}</td>
-                                <td>{{ $adminHome->username }}</td>
-                                <td>{{ $adminHome->fk_user_role_id }}</td>
-                                <td><input type="submit" name="user_id" value="{{ $adminHome->user_id }}"
-                                        class="btn btn-error">
-                                </td>
-                                {{-- <td><input type="submit" class="btn btn-error">ลบผู้ใช้งาน</td> --}}
+                                <th class="form-input w-0.5 border ">{{ $adminHome->user_id }}</th>
+                                <td class="form-input w-0.5 border ">{{ $adminHome->username }}</td>
+                                <td class="form-input w-0.5 border ">{{ $adminHome->user_firstname }}</td>
+                                <td class="form-input w-0.5 border ">{{ $adminHome->user_lastname }}</td>
+                                <td class="form-input w-0.5 border ">{{ $adminHome->fk_user_role_id }}</td>
+                                    <td class="form-input w-0.5 border ">
+                                        <button type="submit"  name="user_id" value="{{ $adminHome->user_id }}">
+                                            <i class="material-icons" style="font-size:48px;color:red">delete</i>
+                                        </button>
+                                    </td>
+                                </div>
                             </tr>
                         </tbody>
                     @endforeach
                 </form>
-
             </table>
         </div>
-        {{-- </form> --}}
     </div>
 </body>
 

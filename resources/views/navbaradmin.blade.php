@@ -8,8 +8,8 @@
                 </svg>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a href=/admintempleuser>จัดการวัด</a></li>
                 <li><a href=/adminuser>จัดการผู้ใช้งาน</a></li>
+                <li><a href=/admintempleuser>จัดการวัด</a></li>
                 <li><a href=/adminhome>จัดการกิจกรรม</a></li>
             </ul>
         </div>
@@ -17,12 +17,27 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-            <li><a href=/admintempleuser>จัดการวัด</a></li>
             <li><a href=/adminuser>จัดการผู้ใช้งาน</a></li>
+            <li><a href=/admintempleuser>จัดการวัด</a></li>
             <li><a href=/adminhome>จัดการกิจกรรม</a></li>
         </ul>
     </div>
-    @if (Session::has('user'))
+
+
+
+    <div class="navbar-end">
+        <a href="{{ route('login.check') }}" class="btn">ออกจากระบบ</a>
+    </div>
+    {{-- @guest
+        <div class="navbar-end">
+            <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
+        </div>
+    @endguest --}}
+
+    {{-- @if (Auth::check())
+  I'm connected
+@endif --}}
+    {{-- @if (Auth::user())
         <div class="navbar-end">
             <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
         </div>
@@ -30,5 +45,7 @@
         <div class="navbar-end">
             <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
         </div>
-    @endif
+    @endif --}}
+    {{-- {{dd(auth()->user()->user_id);}} --}}
+    {{-- {{dd(auth()->user());}} --}}
 </div>

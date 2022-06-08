@@ -12,7 +12,7 @@
 
 <body>
     @include('navbar')
-    <form action="/loginhome" method="POST">
+    <form action="/authenticate" method="POST">
         @csrf
         <div class="hero min-h-screen bg-base-200">
             <div class="flex-col hero-content lg:flex-row-reverse">
@@ -20,14 +20,14 @@
                     <div class="card flex-shrink-0 max-w-xl shadow-2xl bg-base-100">
                         <div class="card-body px-16">
                             <div class="form-control ">
-                                <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้*"
+                                <input type="text" name="username" placeholder="ชื่อผู้ใช้*"
                                     class="input input-bordered w-full px-6">
                             </div>
                             <div class="form-control ">
                                 <label class="label">
                                     {{-- <span class="label-text">รหัสผ่าน</span> --}}
                                 </label>
-                                <input type="password" id="password" name="password" placeholder="รหัสผ่าน*"
+                                <input type="password" name="password" placeholder="รหัสผ่าน*"
                                     class="input input-bordered w-full px-6">
                                 <label class="label ">
                                     <a href="{{ route('register.create') }}"

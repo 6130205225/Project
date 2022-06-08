@@ -36,6 +36,7 @@
             </div>
             <div class="divider"></div>
         @endforeach
+
         {{-- {{ $searchOneAt }} --}}
 </body>
 

@@ -20,7 +20,7 @@
             <li><a href=/activityTemple>เพิ่มกิจกรรมวัด</a></li>
         </ul>
     </div>
-    @if (Session::has('user'))
+    @if (Auth::check())
     <div class="navbar-end">
         <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
     </div>
