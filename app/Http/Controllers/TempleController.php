@@ -11,9 +11,9 @@ use App\Models\Userrole;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
-
+use Session;
 use Illuminate\Http\Request;
+
 
 class TempleController extends Controller
 {
@@ -59,6 +59,49 @@ class TempleController extends Controller
         // dd('fasfas');
         return view('Templeuser', compact('searchOne'));
     }
+    // $savetemple6 = Temple::select('temple_id')
+    //     ->where('fk_user_id', '=', Session::get('sessionUser')) //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
+    //     ->get();
+
+    //     DB::table('templepics')->insert([
+    //         'fk_temple_id' => $savetemple6[0]['temple_id'],//การเข้าถึง array $savetemple6[0]['temple_id'] เข้าไปเทียบ
+    //         'temple_pic_url' => $fileName,
+    //     ]);
+
+    public function Savetempleadminlast(Request $request){
+        $savetemple1 = $request->temple_name;
+        $savetemple2 = $request->fk_temple_type_id;
+        $savetemple3 = $request->temple_description;
+        $savetemple4 = $request->temple_address;
+        $savetemple5 = $request->uploadphoto;
+
+        $edittemple = Temple::select('temple_name')
+        ->where('fk_user_id', '=', Session::get('sessionUser'))
+        ->get();
+
+        $edittempletwo = Templepic::select('temple_pic_url')
+        ->where('fk_temple_id', '=', Session::get('sessionUser'))
+        ->get();
+
+
+
+        // ด้านซ้านคือชื่อฟิว ด้านขวาคือชื่อตัวแปร แล้วเทียบจาก Session ว่าเป็นวัดของใครในการแก้ไข และ get เพื่อดึงมาและสิ้นสุดการ select
+        Temple::where('temple_name',$edittemple[0]['temple_name'])
+        ->update([
+            'temple_name' =>  $savetemple1,
+            'fk_temple_type_id' =>  $savetemple2,
+            'temple_description'=>  $savetemple3,
+            'temple_address' =>  $savetemple4]);
+
+            // Templepic::where('temple_pic_url',$edittempletwo[0]['temple_pic_url'])
+            // ->update(['temple_pic_url' =>  $savetemple5]);
+//    dd(Temple::select('temple_name')->where('fk_user_id', '=', Session::get('sessionUser'))->get());
+
+            return redirect()->route('showtemple.show');
+        // return view('Templeadmin', compact('showone'));
+        // dd('asfas');
+    }
+
 
     public function Savetempleadmin(Request $request)
     {
@@ -77,38 +120,35 @@ class TempleController extends Controller
         // dd($savetemple6);
             // dd(public_path());
 
-        // dd($userid->id);
-
         // $SaveidUsertemple = User::select('user_id')
         // ->where('fk_user_id', '=', 1)
         // ->get();
         // เป็นการทดสอบการเก็บค่า id ของระบบ
+        // dd(auth()->user()->user_id);
 
         DB::table('temples')->insert([
             'temple_name' => $savetemple1,
             'fk_temple_type_id' => $savetemple2,
             'temple_description' => $savetemple3,
             'temple_address' => $savetemple4,
-            'fk_user_id' => auth()->user()->user_id //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
+            'fk_user_id' => Session::get('sessionUser') //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
         ]);
 
         $savetemple6 = Temple::select('temple_id')
-        ->where('fk_user_id', '=', auth()->user()->user_id) //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
+        ->where('fk_user_id', '=', Session::get('sessionUser')) //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
         ->get();
 
-
         DB::table('templepics')->insert([
-            'fk_temple_id' => $savetemple6[0]['temple_id'],
+            'fk_temple_id' => $savetemple6[0]['temple_id'],//การเข้าถึง array $savetemple6[0]['temple_id'] เข้าไปเทียบ
             'temple_pic_url' => $fileName,
         ]);
 
+        $savetemple7 = Temple::select('temple_name','fk_temple_type_id','temple_description','temple_address')
+        ->where('fk_user_id', '=', Session::get('sessionUser')) //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
+        ->get();
 
-        // dd('sgassgas');
-        // $abc = $savetemple3;
-        // substr_replace($abc,’_-_’,5)  ;
-
-        // dd($savetemple1.$savetemple2.$savetemple3);
-        return view('Templeadmin');
+        return redirect()->route('showtemple.show');
+        // return route('/templeadmin');
     }
 
     public function Showadmintemple()
@@ -117,8 +157,11 @@ class TempleController extends Controller
             'temples.temple_name',
             'temples.fk_temple_type_id',
             'temples.temple_description',
-            'temples.temple_address'
+            'temples.temple_address',
+            'templepics.temple_pic_url'
         )
+        ->leftJoin('templepics', 'temples.temple_id', '=', 'templepics.fk_temple_id')
+        ->where('fk_user_id', '=', Session::get('sessionUser'))
         ->get();
         return view('Templeadmin', compact('showone'));//compact คือการโยนข้อมูลกลับไปหา View
     }
@@ -129,9 +172,8 @@ class TempleController extends Controller
     {
         $saveactivity1 = $request->activity_name;
         $saveactivity2 = Temple::select('temple_id')
-        ->where('fk_user_id', '=', auth()->user()->user_id)
+        ->where('fk_user_id', '=', Session::get('sessionUser'))
         ->get();
-
         $saveactivity3 = $request->activity_description;
 
         // dd(auth()->user()->user_id);
@@ -151,7 +193,7 @@ class TempleController extends Controller
             'activity_name' => $saveactivity1,
             'fk_temple_id' => $saveactivity2[0]['temple_id'],
             'activity_description' => $saveactivity3,
-            'fk_user_id' => auth()->user()->user_id
+            'fk_user_id' => Session::get('sessionUser')
         ]);
         // dd($saveactivity1.$saveactivity2.$saveactivity3);
 
@@ -161,18 +203,49 @@ class TempleController extends Controller
         ->where('fk_temple_id', '=', $saveactivity2)
         ->get();
 
-        // dd($Savephotoone->id);
-        // dd('fasf');
-        // dd($saveactivity4);
-
             $Savephotoone = Activitypic::create([
                 'fk_activity_id' => $PhotoActivity->id,
                 'fk_temple_id' => $saveactivity2[0]['temple_id'],
                 'activity_pic_url' => $fileNameone,
             ]);
 
-        return view('ActivityTemple');
+        return redirect()->route('showactivitytemple.show');
+        // return view('ActivityTemple');
     }
+
+
+    public function SaveactivityTemplelast(Request $request){
+        $saveactivity1 = $request->activity_name;
+        $saveactivity3 = $request->activity_description;
+
+        $editactvity = Activity::select('activity_name')
+        ->where('fk_user_id', '=', Session::get('sessionUser'))
+        ->get();
+
+                // dd(Activity::select('fk_temple_id')
+                // ->where('fk_user_id', '=', Session::get('sessionUser'))
+                // ->get());
+
+        // ด้านซ้านคือชื่อฟิว ด้านขวาคือชื่อตัวแปร แล้วเทียบจาก Session ว่าเป็นวัดของใครในการแก้ไข และ get เพื่อดึงมาและสิ้นสุดการ select
+        Activity::where('activity_name',$editactvity[0]['activity_name'])
+        ->update([
+            'activity_name' => $saveactivity1,
+            'activity_description'  => $saveactivity3]);
+
+            return redirect()->route('showactivitytemple.show');
+    }
+
+    //     $edittempletwo = Templepic::select('temple_pic_url')***
+    //     ->where('fk_temple_id', '=', Session::get('sessionUser'))
+    //     ->get();
+    //     // ด้านซ้านคือชื่อฟิว ด้านขวาคือชื่อตัวแปร แล้วเทียบจาก Session ว่าเป็นวัดของใครในการแก้ไข และ get เพื่อดึงมาและสิ้นสุดการ select
+    //     Temple::where('temple_name',$edittemple[0]['temple_name'])
+    //     ->update([
+    //         'temple_name' =>  $savetemple1,
+    //         'fk_temple_type_id' =>  $savetemple2,
+    //         'temple_description'=>  $savetemple3,
+    //         'temple_address' =>  $savetemple4]);
+
 
     public function Showadminactivitytemple()
     {

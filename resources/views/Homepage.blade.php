@@ -44,7 +44,6 @@
                             <div class="card-actions justify-end">
                                 <div class="divider"></div>
 
-
                                 <form action="searchtempleOne" method="POST">
                                     @csrf
                                     <input hidden type="text" name="searchTwo" value="{{ $templeHome->temple_id }}">
@@ -57,12 +56,6 @@
 
                 @endforeach
             </div>
-            {{-- <div class="btn-group justify-center">
-                <button class="btn btn-active">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-                <button class="btn">4</button>
-            </div> --}}
         </div>
     </div>
 </body>

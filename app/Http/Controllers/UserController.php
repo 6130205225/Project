@@ -32,13 +32,20 @@ class UserController extends Controller
             ->where('password', '=', $password)
             ->get();
 // dd(auth()->user()->fk_user_role_id);
-            $request->session()->regenerate(); // การสร้าง session เพื่อเข้าไปในระบบ
+
+
+                // $request->session()->regenerate();
+                $request->session()->put('sessionUser',auth()->user()->user_id); // การสร้าง session เพื่อเข้าไปในระบบ
+                // dd(auth()->user()->user_id);
+
 // dd($request->session()->regenerate());
             if (auth()->user()->fk_user_role_id==1){
+                // return redirect()->intended('/adminuser');
                 return redirect('/adminuser');
             }
 
             if (auth()->user()->fk_user_role_id==2){
+                // return redirect()->intended('/templeadmin');
                 return redirect('/templeadmin');
             }
             // dd(auth()->user()->user_id); //การเทียบ id ของแต่ละคนที่ที่ login เข้ามา
@@ -51,8 +58,7 @@ class UserController extends Controller
     public function logouthome(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->flush(); //กเป็นการล้าง session ทั้งหมดเพื่อออกจากระบบ
         return redirect('/homepage');
 
     }

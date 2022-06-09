@@ -23,21 +23,8 @@
         </ul>
     </div>
 
-
-
-    <div class="navbar-end">
-        <a href="{{ route('login.check') }}" class="btn">ออกจากระบบ</a>
-    </div>
-    {{-- @guest
-        <div class="navbar-end">
-            <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
-        </div>
-    @endguest --}}
-
-    {{-- @if (Auth::check())
-  I'm connected
-@endif --}}
-    {{-- @if (Auth::user())
+    {{-- 'sessionUser' คือชื่อ session ที่ชื่อว่า sessionUser ที่อยู่ใน Controller --}}
+    @if (Session::has('sessionUser'))
         <div class="navbar-end">
             <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
         </div>
@@ -45,7 +32,6 @@
         <div class="navbar-end">
             <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
         </div>
-    @endif --}}
-    {{-- {{dd(auth()->user()->user_id);}} --}}
-    {{-- {{dd(auth()->user());}} --}}
+    @endif
+
 </div>

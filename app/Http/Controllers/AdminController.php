@@ -9,6 +9,7 @@ use App\Models\Templetype;
 use App\Models\Activity;
 use App\Models\Activitypic;
 use DB;
+use Illuminate\Support\Str;
 
 
 use Illuminate\Http\Request;
@@ -48,9 +49,17 @@ class AdminController extends Controller
             'temple_address',
             // 'fk_temple_type_id'
         )
+
         // ->join('templetypes', 'temples.temple_id', '=', 'templetypes.temple_type_id')
         ->orderBy('temples.temple_id', 'asc')
         ->get();
+
+        // ->where($truncated = Str::limit('temple_description')->limit(20))
+        // $message = $admintempleuerone;
+        // echo substr($message,-100);
+        // $truncated = Str::limit($admintempleuerone)->limit(20);
+        // $truncated = Str::of('The quick brown fox jumps over the lazy dog')->limit(20);
+
         return view('Admintempleuser', compact('admintempleuerone'));
     }
 

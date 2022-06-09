@@ -23,12 +23,12 @@
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <th class="text-base">ลำดับ</th>
-                        <th class="text-base">ชื่อผู้ใช้</th>
-                        <th class="text-base">ชื่อ</th>
-                        <th class="text-base">นามสุกล</th>
-                        <th class="text-base">ประเภท</th>
-                        <th class="text-base">จัดการ</th>
+                        <th class="text-base text-center">ลำดับ</th>
+                        <th class="text-base text-center">ชื่อผู้ใช้</th>
+                        <th class="text-base text-center">ชื่อ</th>
+                        <th class="text-base text-center">นามสุกล</th>
+                        <th class="text-base text-center">ประเภท</th>
+                        <th class="text-base text-center">จัดการ</th>
                     </tr>
                 </thead>
                 <form action="deleteUser" method="POST">
@@ -36,12 +36,12 @@
                     @foreach ($adminHome as $adminHome)
                         <tbody>
                             <tr>
-                                <th class="form-input w-0.5 border ">{{ $adminHome->user_id }}</th>
-                                <td class="form-input w-0.5 border ">{{ $adminHome->username }}</td>
-                                <td class="form-input w-0.5 border ">{{ $adminHome->user_firstname }}</td>
-                                <td class="form-input w-0.5 border ">{{ $adminHome->user_lastname }}</td>
-                                <td class="form-input w-0.5 border ">{{ $adminHome->fk_user_role_id }}</td>
-                                    <td class="form-input w-0.5 border ">
+                                <th class="form-input w-0.5  text-center">{{ $adminHome->user_id }}</th>
+                                <td class="form-input w-0.5  text-center">{{ $adminHome->username }}</td>
+                                <td class="form-input w-0.5  text-center">{{ $adminHome->user_firstname }}</td>
+                                <td class="form-input w-0.5  text-center">{{ $adminHome->user_lastname }}</td>
+                                <td class="form-input w-0.5  text-center">{{ $adminHome->fk_user_role_id }}</td>
+                                    <td class="form-input w-0.5  text-center">
                                         <button type="submit"  name="user_id" value="{{ $adminHome->user_id }}">
                                             <i class="material-icons" style="font-size:48px;color:red">delete</i>
                                         </button>

@@ -35,11 +35,11 @@
                     @foreach ($adminctivityhome as $adminctivityhome)
                         <tbody>
                             <tr>
-                                <th class="form-input w-0.5 border text-center">{{ $adminctivityhome->activity_id }}</th>
-                                <td class="form-input w-0.5 border text-center">{{ $adminctivityhome->activity_name }}</td>
-                                <td class="form-input w-0.5 border text-center">{{ $adminctivityhome->activity_description }}</td>
+                                <th class="form-input w-0.5 text-center">{{ $adminctivityhome->activity_id }}</th>
+                                <td class="form-input w-0.5 text-center">{{ $adminctivityhome->activity_name }}</td>
+                                <td class="form-input w-0.5 text-center">{{ $adminctivityhome->activity_description }}</td>
                                 {{-- <td>{{ $adminctivityhome->fk_temple_id }}</td> --}}
-                                <td class="form-input w-0.5 border text-center">
+                                <td class="form-input w-0.5 text-center">
                                     <button type="submit"  name="activity_id" value="{{ $adminctivityhome->activity_id }}">
                                         <i class="material-icons" style="font-size:48px;color:red">delete</i>
                                     </button>

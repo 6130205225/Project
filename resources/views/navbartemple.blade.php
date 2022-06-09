@@ -20,13 +20,15 @@
             <li><a href=/activityTemple>เพิ่มกิจกรรมวัด</a></li>
         </ul>
     </div>
-    @if (Auth::check())
-    <div class="navbar-end">
-        <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
-    </div>
-@else
-    <div class="navbar-end">
-        <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
-    </div>
-@endif
+
+    {{-- 'sessionUser' คือชื่อ session ที่ชื่อว่า sessionUser ที่อยู่ใน Control --}}
+    @if (Session::has('sessionUser'))
+        <div class="navbar-end">
+            <a href="{{ route('logouthome.show') }}" class="btn">ออกจากระบบ</a>
+        </div>
+    @else
+        <div class="navbar-end">
+            <a href="{{ route('login.check') }}" class="btn">เข้าสู่ระบบ</a>
+        </div>
+    @endif
 </div>

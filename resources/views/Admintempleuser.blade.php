@@ -21,12 +21,12 @@
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <th class="text-base">ลำดับ</th>
-                        <th class="text-base">ชื่อวัด</th>
-                        <th class="text-base">รายละเอียด</th>
-                        <th class="text-base">ที่ตั้ง</th>
+                        <th class="text-base text-center">ลำดับ</th>
+                        <th class="text-base text-center">ชื่อวัด</th>
+                        <th class="text-base text-center">รายละเอียด</th>
+                        <th class="text-base text-center">ที่ตั้ง</th>
                         {{-- <th>fk_temple_type_id</th> --}}
-                        <th class="text-base">จัดการ</th>
+                        <th class="text-base text-center">จัดการ</th>
                     </tr>
                 </thead>
                 <form action="deleteTemple" method="POST">
@@ -34,19 +34,20 @@
                     @foreach ($admintempleuerone as $admintempleuerone)
                         <tbody>
                             <tr>
-                                <th class="form-input w-0.5 border py-3">{{ $admintempleuerone->temple_id }}</th>
-                                <td class="form-input w-0.5 border py-3">{{ $admintempleuerone->temple_name }}</td>
-                                <td class="form-input w-0.5 border py-3">
+                                <th class="form-input py-3 text-center">{{ $admintempleuerone->temple_id }}</th>
+                                <td class="form-input py-3 text-center">{{ $admintempleuerone->temple_name }}</td>
+                                <td class="form-input py-3 text-center break-words w-64 m-2">
                                     {{ $admintempleuerone->temple_description }}
                                 </td>
-                                <td class="form-input w-full border py-3">{{ $admintempleuerone->temple_address }}</td>
+                                <td class="form-input w-full py-3 text-center ">
+                                    {{ $admintempleuerone->temple_address }}</td>
                                 {{-- <td>{{ $admintempleuerone->fk_temple_type_id }}</td> --}}
-                                <td class="form-input w-full border py-3">
-                                    <button type="submit"  name="temple_id" value="{{ $admintempleuerone->temple_id }}">
+                                <td class="form-input w-full py-3 text-center">
+                                    <button type="submit" name="temple_id"
+                                        value="{{ $admintempleuerone->temple_id }}">
                                         <i class="material-icons" style="font-size:48px;color:red">delete</i>
                                     </button>
                                 </td>
-                                {{-- <td><button type="submit" class="btn btn-error">ลบวัด</button></td> --}}
                             </tr>
                         </tbody>
                     @endforeach

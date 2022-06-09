@@ -136,29 +136,50 @@ Route::get('/wrong', function () {
     // Route::get('/templeadmin', function () {
     //     return view('Templeadmin');
     // });
-
     Route::get(
         '/templeadmin',
         [TempleController::class, 'Showadmintemple']
-    );
+    )
+        ->name("showtemple.show");
+
+    // Route::get(
+    //     '/templeadmin',
+    //     [TempleController::class, 'Showadmintemple']
+    // );
 
     Route::post('
         /templeadmin',
         [TempleController::class, 'Savetempleadmin']
     );
 
+    Route::post('
+        /templeadminlast',
+        [TempleController::class, 'Savetempleadminlast']
+    );
+
     // Route::get('/activityTemple', function () {
     //     return view('ActivityTemple');
     // });
 
+    // Route::get(
+    //     '/activityTemple',
+    //     [TempleController::class, 'Showadminactivitytemple']
+    // );
+
     Route::get(
         '/activityTemple',
         [TempleController::class, 'Showadminactivitytemple']
-    );
+    )
+        ->name("showactivitytemple.show");
 
     Route::post('
         /activityTemple',
         [TempleController::class, 'SaveactivityTemple']
+    );
+
+    Route::post('
+        /activityTemplelast',
+        [TempleController::class, 'SaveactivityTemplelast']
     );
 
     Route::get(
