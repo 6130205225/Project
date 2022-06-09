@@ -254,6 +254,7 @@ class TempleController extends Controller
             'activities.fk_temple_id',
             'activities.activity_description',
         )
+        ->where('fk_user_id', '=', Session::get('sessionUser'))
         ->get();
         return view('ActivityTemple', compact('showtwo'));//compact คือการโยนข้อมูลกลับไปหา View
     }
